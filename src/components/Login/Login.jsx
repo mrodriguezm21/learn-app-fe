@@ -12,7 +12,6 @@ function reducer(state, action) {
             return { ...state, password: action.payload };
         }
         default:
-            console.error('Unknown action type');
             return state;
     }
 }
