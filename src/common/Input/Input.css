@@ -1,0 +1,23 @@
+.input {
+    position: relative;
+  }
+  .input label {
+    position: absolute;
+    top: -20px;
+  }
+  .input input {
+    border: 2px solid #fdb942;
+    min-width: 175px;
+    padding: 10px;
+    width: 100%;
+  }
+  .input__error{
+    color: red;
+    font-size: 0.7rem;
+    font-weight: 700;
+    position: absolute;
+    max-width: unset;
+    width: fit-content;
+    top: 40px;
+  }
+  
