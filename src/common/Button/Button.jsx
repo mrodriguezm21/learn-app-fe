@@ -4,8 +4,8 @@ import './Button.css';
 export function Button({
     onClick,
     children,
-    variant = 'text',
     type = 'button',
+    variant = 'text',
 }) {
     return (
         <button
@@ -19,8 +19,14 @@ export function Button({
 }
 
 Button.propTypes = {
-    variant: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    type: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
+    onClick: PropTypes.func,
+    variant: PropTypes.string,
+    type: PropTypes.string,
+};
+
+Button.defaultProps = {
+    onClick: () => {},
+    type: 'button',
+    variant: 'text',
 };

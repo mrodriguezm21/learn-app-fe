@@ -12,10 +12,12 @@ export const ERRORS = {
 };
 
 export const LOG_FORM = {
-    NAME: 'Name',
+    USERNAME: 'User name',
+    USERNAME_PLACEHOLDER: 'Enter ema',
     EMAIL: 'Email',
     PASSWORD: 'Password',
-    LOGIN: 'Login',
+    PASSWORD_PLACEHOLDER: 'Enter password',
+    SIGNIN: 'Sign In',
     REGISTER: 'Register',
 };
 export const REGEXS = {

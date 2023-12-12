@@ -11,8 +11,10 @@ export function Input({
     error,
 }) {
     return (
-        <div className="input" style={{ width }}>
-            {label && <label htmlFor={label}>{label}</label>}
+        <div className="textbox" style={{ width }}>
+            <label className="label" htmlFor={label}>
+                {label}
+            </label>
             {error && <span className="input__error">{error}</span>}
             <input
                 type={type}

@@ -1,0 +1,43 @@
+.signin__container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.signin__header {
+    font-size: 32px;
+}
+.signin__subheader {
+    font-size: 20px;
+    color: #565e6cff;
+}
+.signin__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+.signin__form Button {
+    margin-top: 22px;
+}
+.signin__register-section {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+.signin__register-section__first-line {
+    font-size: 12px;
+    font-weight: 700;
+    color: #565e6cff;
+}
+.signin__register-section__register-link {
+    font-weight: 700;
+    color: #6355d8ff;
+}

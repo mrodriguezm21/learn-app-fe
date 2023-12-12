@@ -1,16 +1,31 @@
+/* Button 216 */
 .button {
-    background-color: inherit;
-    border: 2px solid #e796f4;
-    height: 2.6rem;
-    width: 2.6rem;
-    padding: 0.3rem 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .text-button {
-    width: fit-content;
-    min-width: 11rem;
-    padding: 0.3rem 0.5rem;
-  }
-  
+  width: 155px; 
+  height: 44px; 
+  padding: 0 16px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 16px; 
+  font-weight: 400; 
+  line-height: 26px; 
+  color: #FFFFFFFF;
+  background: #6355D8FF;
+  opacity: 1; 
+  border: none; 
+  border-radius: 6px;
+}
+/* Hover */
+.button:hover {
+  color: #FFFFFFFF; /* white */
+  background: #4D3ED3FF; /* primary-550 */
+}
+/* Pressed */
+.button:hover:active {
+  color: #FFFFFFFF; /* white */
+  background: #3D2DC7FF; /* primary-600 */
+}
+/* Disabled */
+.button:disabled {
+  opacity: 0.4; 
+}
