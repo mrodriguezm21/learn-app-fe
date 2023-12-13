@@ -2,7 +2,7 @@ import { useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { Input, Button } from '../../common';
 import './Login.css';
-import { ERRORS, FORM_STATUS, LOG_FORM } from '../../constants';
+import { FORM_STATUS, LOG_FORM } from '../../constants';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -18,16 +18,16 @@ function reducer(state, action) {
 }
 
 const validateInputs = ({ formState }) => {
-    const { email, password } = formState;
+    const { email: username, password } = formState;
     const errors = {
-        email: '',
+        username: '',
         password: '',
     };
-    if (!email) {
-        errors.email = ERRORS.EMAIL;
+    if (!username) {
+        errors.username = true;
     }
     if (!password) {
-        errors.password = ERRORS.PASSWORD;
+        errors.password = true;
     }
     return errors;
 };
@@ -38,8 +38,8 @@ export function Login() {
         password: '',
     });
     const [formErrors, setFormErrors] = useState({
-        username: '',
-        password: '',
+        username: false,
+        password: false,
     });
     const [formStatus, setFormStatus] = useState(FORM_STATUS.IDLE);
 
@@ -76,7 +76,7 @@ export function Login() {
             <div className="signin__register-section">
                 <span className="signin__register-section__first-line">OR</span>
                 <span>
-                    Don&apos;t have an account?
+                    Don&apos;t have an account?{' '}
                     <Link
                         to="/register"
                         className="signin__register-section__register-link"

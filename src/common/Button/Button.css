@@ -30,3 +30,27 @@
 .button:disabled {
   opacity: 0.4; 
 }
+.button--secondary {
+  color: #FFFFFFFF; /* white */
+  background: #60CFA5FF;
+}
+.button--secondary:hover {
+  color: #FFFFFFFF; /* white */
+  background: #36B584FF; /* tertiary3-600 */
+}
+.button--secondary:hover:active {
+  color: #FFFFFFFF; /* white */
+  background: #2F9C72FF; /* tertiary3-650 */
+}
+.button--tertiary {
+  background: #00000000;
+  color: #6355D8FF;
+}
+.button--tertiary:hover {
+  color: #6355D8FF;
+  background: #E1DFF8FF;
+}
+.button--tertiary:hover:active {
+  color: #6355D8FF; /* primary-500 */
+  background: #CFCBF3FF; /* primary-200 */
+}

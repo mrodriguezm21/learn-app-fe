@@ -19,7 +19,7 @@ a {
     text-decoration: none; /* no underline */
 }
 a:visited {
-    color: #6355d8ff;
+    color: initial;
 }
 ul,
 ol,
@@ -43,7 +43,6 @@ textarea:focus {
     font-family: 'Montserrat', sans-serif;
     font-size: 56px;
     font-weight: 700;
-    line-height: 78px;
     color: #171a1fff;
 }
 .gray {

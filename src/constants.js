@@ -12,6 +12,8 @@ export const ERRORS = {
 };
 
 export const LOG_FORM = {
+    LOGIN: 'Login',
+    JOIN_US: 'Join us',
     USERNAME: 'User name',
     USERNAME_PLACEHOLDER: 'Enter ema',
     EMAIL: 'Email',

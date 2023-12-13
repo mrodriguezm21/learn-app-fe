@@ -41,3 +41,6 @@
     font-weight: 700;
     color: #6355d8ff;
 }
+.signin__register-section__register-link:visited {
+    color: #6355d8ff;
+}

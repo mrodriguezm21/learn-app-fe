@@ -5,13 +5,15 @@ export function Button({
     onClick,
     children,
     type = 'button',
-    variant = 'text',
+    variant = '',
+    width = '100%',
 }) {
     return (
         <button
             onClick={onClick}
             type={type === 'button' ? 'button' : 'submit'}
-            className={`button${variant === 'text' ? ' text-button' : ''}`}
+            className={variant ? `button button--${variant}` : 'button'}
+            style={{ width }}
         >
             {children}
         </button>
@@ -23,10 +25,12 @@ Button.propTypes = {
     onClick: PropTypes.func,
     variant: PropTypes.string,
     type: PropTypes.string,
+    width: PropTypes.string,
 };
 
 Button.defaultProps = {
     onClick: () => {},
     type: 'button',
-    variant: 'text',
+    variant: '',
+    width: '100%',
 };
