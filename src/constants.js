@@ -48,3 +48,8 @@ export const COURSE_FORM_CONSTANTS = {
     AUTHOR_ITEM_ADD_BUTTON: 'Add author',
     AUTHOR_ITEM_DELETE_BUTTON: 'Delete author',
 };
+
+export const FOOTER_CONSTANTS = {
+    INPUT: 'Input your email',
+    BUTTON: 'Subscribe',
+};

@@ -1,0 +1,116 @@
+footer {
+    padding: 1em 0 0.5em 0;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    background: #fafafbff;
+    gap: 24px;
+}
+footer .logo__container {
+    display: none;
+}
+footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+footer div h3 {
+    font-size: 20px;
+}
+footer div .footer_ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer__newsletter {
+    width: 90%;
+    align-items: center;
+    gap: 12px;
+}
+.footer__newsletter h3 {
+    color: #6355d8ff;
+}
+.footer__newsletter p {
+    color: #424955ff;
+    font-size: 12px;
+}
+
+.footer__newsletter__form {
+    margin-top: 7px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: unset;
+}
+.footer__newsletter__form input {
+    border-radius: 6px 0 0 6px;
+}
+.footer__newsletter__form button {
+    border-radius: 0 6px 6px 0;
+}
+.footer__legal {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.footer__legal .footer_ul {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.footer__legal .footer_ul li {
+    list-style: inside;
+}
+@media screen and (min-width: 768px) {
+    footer {
+        padding: 4em 6em 1.5em;
+        grid-template-columns: 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+        grid-template-rows: repeat(2, auto);
+        place-items: unset;
+        text-align: left;
+        grid-template-areas:
+            'logo__container footer__product footer__resources footer__company footer__newsletter footer__newsletter'
+            'footer__select footer__select footer_legal footer_legal footer__social footer__social';
+    }
+    footer .logo__container {
+        display: flex;
+        flex-direction: row;
+        gap: unset;
+    }
+
+    .logo__container {
+        grid-area: logo__container;
+    }
+
+    .footer__product {
+        grid-area: footer__product;
+    }
+
+    .footer__resources {
+        grid-area: footer__resources;
+    }
+
+    .footer__company {
+        grid-area: footer__company;
+    }
+
+    .footer__newsletter {
+        grid-area: footer__newsletter;
+        width: 100%;
+        align-items: unset;
+    }
+
+    .footer__select {
+        grid-area: footer__select;
+    }
+
+    .footer__legal {
+        grid-area: footer_legal;
+    }
+
+    .footer__social {
+        grid-area: footer__social;
+    }
+}

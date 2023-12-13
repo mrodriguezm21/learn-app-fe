@@ -1,4 +1,5 @@
 import { useState, useReducer } from 'react';
+import { Link } from 'react-router-dom';
 import { Input, Button } from '../../common';
 import './Login.css';
 import { ERRORS, FORM_STATUS, LOG_FORM } from '../../constants';
@@ -74,7 +75,15 @@ export function Login() {
             </form>
             <div className="signin__register-section">
                 <span className="signin__register-section__first-line">OR</span>
-                <span>Don&apos;t have an account? Sign up</span>
+                <span>
+                    Don&apos;t have an account?
+                    <Link
+                        to="/register"
+                        className="signin__register-section__register-link"
+                    >
+                        Sign up
+                    </Link>
+                </span>
             </div>
         </div>
     );

@@ -4,9 +4,9 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     display: flex;
+    font-size: 14px;
     place-items: center;
     min-width: 320px;
-    min-height: 100vh;
 }
 
 * {
@@ -19,7 +19,7 @@ a {
     text-decoration: none; /* no underline */
 }
 a:visited {
-    color: unset; /* no purple */
+    color: #6355d8ff;
 }
 ul,
 ol,

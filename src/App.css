@@ -1,4 +1,8 @@
 #root {
-  max-width: 1280px;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   margin: 0 auto;
 }

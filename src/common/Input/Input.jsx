@@ -12,9 +12,11 @@ export function Input({
 }) {
     return (
         <div className="textbox" style={{ width }}>
-            <label className="label" htmlFor={label}>
-                {label}
-            </label>
+            {label ? (
+                <label className="label" htmlFor={label}>
+                    {label}
+                </label>
+            ) : null}
             {error && <span className="input__error">{error}</span>}
             <input
                 type={type}
@@ -33,11 +35,12 @@ Input.propTypes = {
     placeholder: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     width: PropTypes.string,
     error: PropTypes.string,
 };
 Input.defaultProps = {
+    label: '',
     width: '100%',
     error: '',
 };
