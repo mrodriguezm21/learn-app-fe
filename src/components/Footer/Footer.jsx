@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Input, Logo } from '../../common';
 import './Footer.css';
-import { FOOTER_CONSTANTS } from '../../constants';
+import { BUTTONS, FOOTER_CONSTANTS } from '../../constants';
 
 export function Footer() {
     const [email, setEmail] = useState('');
@@ -51,7 +51,7 @@ export function Footer() {
                         onChange={handleEmailChange}
                         placeholder={FOOTER_CONSTANTS.INPUT}
                     />
-                    <Button>{FOOTER_CONSTANTS.BUTTON}</Button>
+                    <Button>{BUTTONS.SUBSCRIBE}</Button>
                 </div>
             </div>
             <div className="footer__legal">

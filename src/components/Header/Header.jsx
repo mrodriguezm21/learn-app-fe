@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Logo } from '../../common';
 import './Header.css';
-import { LOG_FORM } from '../../constants';
+import { BUTTONS } from '../../constants';
 
 export function Header() {
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        navigate('/login');
+    };
+    const handleJoinUs = () => {
+        navigate('/join-us');
+    };
     return (
         <header>
             <Link to="/" style={{ width: '20%' }}>
@@ -18,8 +25,10 @@ export function Header() {
                     </ul>
                 </nav>
                 <aside className="header__nav__log-buttons">
-                    <Button variant="tertiary">{LOG_FORM.LOGIN}</Button>
-                    <Button>{LOG_FORM.JOIN_US}</Button>
+                    <Button variant="tertiary" onClick={handleLogin}>
+                        {BUTTONS.LOGIN}
+                    </Button>
+                    <Button onClick={handleJoinUs}>{BUTTONS.JOIN_US}</Button>
                 </aside>
             </div>
         </header>

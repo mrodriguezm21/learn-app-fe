@@ -11,6 +11,12 @@ export const ERRORS = {
     NULL_AUTHORS: 'Authors is required',
 };
 
+export const BUTTONS = {
+    SIGN_IN: 'Sign In',
+    JOIN_US: 'Join us',
+    SUBSCRIBE: 'Subscribe',
+};
+
 export const LOG_FORM = {
     LOGIN: 'Login',
     JOIN_US: 'Join us',

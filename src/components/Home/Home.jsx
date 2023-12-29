@@ -1,10 +1,14 @@
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 import dottedRectangle from '../../assets/dotted-rectangle.svg';
-import borderCircle from '../../assets/border-circle.svg';
 import { Button } from '../../common';
-import { LOG_FORM } from '../../constants';
+import { BUTTONS } from '../../constants';
 
 export function Home() {
+    const navigate = useNavigate();
+    const handleJoinUs = () => {
+        navigate('/join-us');
+    };
     return (
         <>
             <section className="home__learning">
@@ -46,7 +50,9 @@ export function Home() {
                         tempor ipsum ex nulla ea adipisicing sit consequat enim
                         elit cupidatat o
                     </p>
-                    <Button width="15%">{LOG_FORM.JOIN_US}</Button>
+                    <Button width="15%" onClick={handleJoinUs}>
+                        {BUTTONS.JOIN_US}
+                    </Button>
                 </article>
                 <div className="oval" />
                 <div className="home__join-us__bottom-dr">
