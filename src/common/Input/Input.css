@@ -1,67 +1,57 @@
-/* .input {
-    position: relative;
-  }
-  .input label {
-    position: absolute;
-    top: -20px;
-  }
-  .input input {
-    border: 2px solid #fdb942;
-    min-width: 175px;
-    padding: 10px;
-    width: 100%;
-  }
-  .input__error{
-    color: red;
-    font-size: 0.7rem;
-    font-weight: 700;
-    position: absolute;
-    max-width: unset;
-    width: fit-content;
-    top: 40px;
-  } */
-
-.textbox{
-  display: flex;
-  flex-direction: column;
+.textbox {
+    display: flex;
+    flex-direction: column;
 }
-.textbox input {
-  height: 44px;
-  padding-left: 16px; 
-  padding-right: 16px; 
-  font-size: 16px; 
-  font-weight: 400; 
-  line-height: 26px; 
-  background: #F8F9FAFF; /* neutral-150 */
-  border-radius: 6px; /* border-m */
-  border-width: 1px; 
-  border-color: #9095A0FF; /* neutral-500 */
-  outline: none; 
+.textbox input,
+select {
+    height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    background: #f8f9faff; /* neutral-150 */
+    border-radius: 6px; /* border-m */
+    border-width: 2px;
+    border-color: #9095a0ff; /* neutral-500 */
+    outline: none;
+}
+.textbox select {
+    color: #8e8e8e;
+}
+.textbox--error,
+.textbox--error input,
+.textbox--error .label,
+.textbox--error select {
+    border-color: #ed5d56ff;
+    color: #ed5d56ff;
 }
 .textbox .label {
-  align-self: flex-start;
-  font-size: 12px; 
-  font-weight: 700; 
-  line-height: 20px; 
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
 }
 /* hover */
 .textbox input:hover {
-  color: #9095A0FF; /* neutral-500 */
-  background: #F8F9FAFF; /* neutral-150 */
-  border-color: #6E7787FF; /* neutral-550 */
+    color: #9095a0ff; /* neutral-500 */
+    background: #f8f9faff; /* neutral-150 */
+    border-color: #6e7787ff; /* neutral-550 */
 }
 /* focused */
 .textbox input:focus {
-  color: #9095A0FF; /* neutral-500 */
-  background: #F8F9FAFF; /* neutral-150 */
-  border-color: #9095A0FF; /* neutral-500 */
+    color: #9095a0ff; /* neutral-500 */
+    background: #f8f9faff; /* neutral-150 */
+    border-color: #9095a0ff; /* neutral-500 */
 }
 /* disabled */
 .textbox input:disabled {
-  color: #9095A0FF; /* neutral-500 */
-  background: #F8F9FAFF; /* neutral-150 */
-  border-color: #9095A0FF; /* neutral-500 */
+    color: #9095a0ff; /* neutral-500 */
+    background: #f8f9faff; /* neutral-150 */
+    border-color: #9095a0ff; /* neutral-500 */
+    cursor: not-allowed;
 }
-.textbox :disabled + .icon, .textbox :disabled + .icon + .icon {
-  fill: #9095A0FF; /* neutral-500 */
+.textbox :disabled + .icon,
+.textbox :disabled + .icon + .icon {
+    fill: #9095a0ff; /* neutral-500 */
 }

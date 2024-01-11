@@ -29,6 +29,11 @@
 /* Disabled */
 .button:disabled {
   opacity: 0.4; 
+  cursor: not-allowed;
+}
+.button:disabled:hover {
+  color: #FFFFFFFF; /* white */
+  background: #6355D8FF; /* primary-500 */
 }
 .button--secondary {
   color: #FFFFFFFF; /* white */

@@ -14,10 +14,8 @@ header {
     padding: 0 1em;
     display: flex;
     justify-content: space-between;
-}
-.header__nav {
     color: #565e6cff;
-    display: flex;
+
 }
 .header__nav__menu {
     display: flex;

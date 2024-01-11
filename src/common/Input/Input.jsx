@@ -11,13 +11,15 @@ export function Input({
     error,
 }) {
     return (
-        <div className="textbox" style={{ width }}>
+        <div
+            className={error ? 'textbox textbox--error' : 'textbox'}
+            style={{ width }}
+        >
             {label ? (
                 <label className="label" htmlFor={label}>
                     {label}
                 </label>
             ) : null}
-            {error && <span className="input__error">{error}</span>}
             <input
                 type={type}
                 placeholder={placeholder}
@@ -31,15 +33,16 @@ export function Input({
 }
 
 Input.propTypes = {
-    type: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    type: PropTypes.string,
     label: PropTypes.string,
     width: PropTypes.string,
     error: PropTypes.string,
 };
 Input.defaultProps = {
+    type: 'text',
     label: '',
     width: '100%',
     error: '',

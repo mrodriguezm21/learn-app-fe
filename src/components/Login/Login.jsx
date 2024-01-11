@@ -18,7 +18,7 @@ function reducer(state, action) {
 }
 
 const validateInputs = ({ formState }) => {
-    const { email: username, password } = formState;
+    const { username, password } = formState;
     const errors = {
         username: '',
         password: '',
@@ -58,7 +58,6 @@ export function Login() {
             <span className="signin__subheader">Welcome back</span>
             <form className="signin__form" onSubmit={handleSubmit}>
                 <Input
-                    type="text"
                     label={LOG_FORM.USERNAME}
                     value={formState.username}
                     onChange={handleUsernameChange}

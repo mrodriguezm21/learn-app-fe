@@ -48,3 +48,6 @@ textarea:focus {
 .gray {
     color: #565e6cff;
 }
+.capitalize {
+    text-transform: capitalize;
+}

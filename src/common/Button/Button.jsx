@@ -7,6 +7,7 @@ export function Button({
     type = 'button',
     variant = '',
     width = '100%',
+    disabled = false,
 }) {
     return (
         <button
@@ -14,6 +15,7 @@ export function Button({
             type={type === 'button' ? 'button' : 'submit'}
             className={variant ? `button button--${variant}` : 'button'}
             style={{ width }}
+            disabled={disabled}
         >
             {children}
         </button>
@@ -26,6 +28,7 @@ Button.propTypes = {
     variant: PropTypes.string,
     type: PropTypes.string,
     width: PropTypes.string,
+    disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -33,4 +36,5 @@ Button.defaultProps = {
     type: 'button',
     variant: '',
     width: '100%',
+    disabled: false,
 };

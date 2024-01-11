@@ -7,8 +7,8 @@ export function JoinUs() {
     return (
         <section className="join-us__container">
             <h1 className="header">Join Us</h1>
-            <JoinUsBox rol="Trainer" imgSrc={imgTrainer} />
-            <JoinUsBox rol="Student" imgSrc={imgStudent} />
+            <JoinUsBox rol="trainer" imgSrc={imgTrainer} />
+            <JoinUsBox rol="student" imgSrc={imgStudent} />
         </section>
     );
 }

@@ -26,7 +26,7 @@ export function Header() {
                 </nav>
                 <aside className="header__nav__log-buttons">
                     <Button variant="tertiary" onClick={handleLogin}>
-                        {BUTTONS.LOGIN}
+                        {BUTTONS.SIGN_IN}
                     </Button>
                     <Button onClick={handleJoinUs}>{BUTTONS.JOIN_US}</Button>
                 </aside>
