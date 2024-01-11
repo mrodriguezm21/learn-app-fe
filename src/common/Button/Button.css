@@ -1,61 +1,61 @@
 /* Button 216 */
 .button {
-  width: 155px; 
-  height: 44px; 
-  padding: 0 16px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  font-size: 16px; 
-  font-weight: 400; 
-  line-height: 26px; 
-  color: #FFFFFFFF;
-  background: #6355D8FF;
-  opacity: 1; 
-  border: none; 
-  border-radius: 6px;
-  cursor: pointer;
+    width: 155px;
+    height: 44px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #ffffffff;
+    background: #6355d8ff;
+    opacity: 1;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 /* Hover */
 .button:hover {
-  color: #FFFFFFFF; /* white */
-  background: #4D3ED3FF; /* primary-550 */
+    color: #ffffffff; /* white */
+    background: #4d3ed3ff; /* primary-550 */
 }
 /* Pressed */
 .button:hover:active {
-  color: #FFFFFFFF; /* white */
-  background: #3D2DC7FF; /* primary-600 */
+    color: #ffffffff; /* white */
+    background: #3d2dc7ff; /* primary-600 */
 }
 /* Disabled */
 .button:disabled {
-  opacity: 0.4; 
-  cursor: not-allowed;
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 .button:disabled:hover {
-  color: #FFFFFFFF; /* white */
-  background: #6355D8FF; /* primary-500 */
+    color: #ffffffff; /* white */
+    background: #6355d8ff; /* primary-500 */
 }
 .button--secondary {
-  color: #FFFFFFFF; /* white */
-  background: #60CFA5FF;
+    color: #ffffffff; /* white */
+    background: #60cfa5ff;
 }
 .button--secondary:hover {
-  color: #FFFFFFFF; /* white */
-  background: #36B584FF; /* tertiary3-600 */
+    color: #ffffffff; /* white */
+    background: #36b584ff; /* tertiary3-600 */
 }
 .button--secondary:hover:active {
-  color: #FFFFFFFF; /* white */
-  background: #2F9C72FF; /* tertiary3-650 */
+    color: #ffffffff; /* white */
+    background: #2f9c72ff; /* tertiary3-650 */
 }
 .button--tertiary {
-  background: #00000000;
-  color: #6355D8FF;
+    background: #00000000;
+    color: #6355d8ff;
 }
 .button--tertiary:hover {
-  color: #6355D8FF;
-  background: #E1DFF8FF;
+    color: #6355d8ff;
+    background: #e1dff8ff;
 }
 .button--tertiary:hover:active {
-  color: #6355D8FF; /* primary-500 */
-  background: #CFCBF3FF; /* primary-200 */
+    color: #6355d8ff; /* primary-500 */
+    background: #cfcbf3ff; /* primary-200 */
 }

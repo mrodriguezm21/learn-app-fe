@@ -24,10 +24,10 @@ const validateInputs = ({ formState }) => {
         password: '',
     };
     if (!username) {
-        errors.username = true;
+        errors.username = 'true';
     }
     if (!password) {
-        errors.password = true;
+        errors.password = 'true';
     }
     return errors;
 };
@@ -38,10 +38,11 @@ export function Login() {
         password: '',
     });
     const [formErrors, setFormErrors] = useState({
-        username: false,
-        password: false,
+        username: '',
+        password: '',
     });
     const [formStatus, setFormStatus] = useState(FORM_STATUS.IDLE);
+    const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const handleUsernameChange = (e) => {
         formDispatch({ type: 'setUsername', payload: e.target.value });
@@ -51,6 +52,15 @@ export function Login() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        const errors = validateInputs({ formState });
+        setFormErrors(errors);
+        const hasErrors = Object.values(errors).some((error) => error);
+        if (hasErrors) {
+            setFormStatus(FORM_STATUS.INVALID);
+            setButtonDisabled(true);
+            return;
+        }
+        setFormStatus(FORM_STATUS.VALID);
     };
     return (
         <div className="signin__container">
@@ -62,6 +72,7 @@ export function Login() {
                     value={formState.username}
                     onChange={handleUsernameChange}
                     placeholder={LOG_FORM.USERNAME_PLACEHOLDER}
+                    error={formErrors.username}
                 />
                 <Input
                     type="password"
@@ -69,12 +80,15 @@ export function Login() {
                     value={formState.password}
                     onChange={handlePasswordChange}
                     placeholder={LOG_FORM.PASSWORD_PLACEHOLDER}
+                    error={formErrors.password}
                 />
-                <Button type="submit"> {LOG_FORM.SIGNIN} </Button>
+                <Button type="submit" disabled={buttonDisabled}>
+                    {LOG_FORM.SIGNIN}
+                </Button>
             </form>
             <div className="signin__register-section">
                 <span className="signin__register-section__first-line">OR</span>
-                <span>
+                <p>
                     Don&apos;t have an account?{' '}
                     <Link
                         to="/register"
@@ -82,7 +96,7 @@ export function Login() {
                     >
                         Sign up
                     </Link>
-                </span>
+                </p>
             </div>
         </div>
     );

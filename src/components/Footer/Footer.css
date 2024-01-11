@@ -53,6 +53,7 @@ footer div .footer_ul {
 .footer__legal {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 12px;
 }
 .footer__legal .footer_ul {
@@ -63,10 +64,13 @@ footer div .footer_ul {
 .footer__legal .footer_ul li {
     list-style: inside;
 }
+.footer__select {
+    width: 40%;
+}
 .footer__select select {
-    padding-left: 12px; 
-  padding-right: 34px; 
-  height: 36px;
+    padding-left: 12px;
+    padding-right: 34px;
+    height: 36px;
 }
 @media screen and (min-width: 600px) {
     footer {

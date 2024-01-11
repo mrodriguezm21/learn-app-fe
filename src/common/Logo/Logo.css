@@ -1,10 +1,10 @@
-.logo__container{
+.logo__container {
     display: flex;
 }
-.logo__container img{
+.logo__container img {
     height: 48px;
 }
-.logo__container span{
+.logo__container span {
     font-size: 32px;
     font-weight: 700;
 }

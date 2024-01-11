@@ -15,7 +15,6 @@ header {
     display: flex;
     justify-content: space-between;
     color: #565e6cff;
-
 }
 .header__nav__menu {
     display: flex;
