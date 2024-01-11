@@ -1,10 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Button, Logo } from '../../common';
 import './Header.css';
 import { BUTTONS } from '../../constants';
+import { SideNav } from './components/SideNav';
+import optionsIcon from '../../assets/sliders.svg';
 
 export function Header() {
     const navigate = useNavigate();
+    const [isSideNavOpen, setIsSideNavOpen] = useState(false);
     const handleLogin = () => {
         navigate('/login');
     };
@@ -13,7 +17,9 @@ export function Header() {
     };
     return (
         <header>
-            <Link to="/" style={{ width: '20%' }}>
+            {isSideNavOpen && <SideNav />}
+            <img src={optionsIcon} alt="" className="setting_icon" />
+            <Link to="/" className="header__link">
                 <Logo />
             </Link>
             <div className="header__nav">

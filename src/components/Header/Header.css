@@ -8,6 +8,10 @@ header {
     border-style: solid;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+.setting_icon {
+    display: none;
 }
 .header__nav {
     width: 80%;
@@ -32,4 +36,20 @@ header {
     display: flex;
     align-items: center;
     gap: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        justify-content: unset;
+    }
+    .setting_icon {
+        display: block;
+        padding-left: 6px;
+    }
+    .header__link {
+        margin: 0 auto;
+    }
+    .header__nav {
+        display: none;
+    }
 }
