@@ -14,6 +14,14 @@ export const BUTTONS = {
     JOIN_US: 'Join us',
     SUBSCRIBE: 'Subscribe',
     SUBMIT: 'Submit',
+    EDIT_PROFILE: 'Edit profile',
+    CHANGE_PASSWORD: 'Change password',
+};
+
+export const BUTTONS_VARIANTS = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    TERTIARY: 'tertiary',
 };
 
 export const LOG_FORM = {

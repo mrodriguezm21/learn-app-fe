@@ -41,9 +41,18 @@ textarea:focus {
 
 .header {
     font-family: 'Montserrat', sans-serif;
-    font-size: 56px;
+    font-size: 3.5em;
     font-weight: 700;
     color: #171a1fff;
+}
+.subheader {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #171a1fff;
+}
+.bold {
+    font-weight: 700;
 }
 .gray {
     color: #565e6cff;

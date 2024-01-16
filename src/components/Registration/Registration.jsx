@@ -169,6 +169,7 @@ export function Registration({ rol, imgSrc }) {
                                     value={formState.dateOfBirth}
                                     onChange={handleDateOfBirthChange}
                                     error={formErrors.dateOfBirth}
+                                    type="date"
                                 />
                                 <Input
                                     label={REG_FORM.ADDRESS}

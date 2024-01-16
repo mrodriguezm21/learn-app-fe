@@ -6,7 +6,6 @@ export function Button({
     children,
     type = 'button',
     variant = '',
-    width = '100%',
     disabled = false,
 }) {
     return (
@@ -14,7 +13,6 @@ export function Button({
             onClick={onClick}
             type={type === 'button' ? 'button' : 'submit'}
             className={variant ? `button button--${variant}` : 'button'}
-            style={{ width }}
             disabled={disabled}
         >
             {children}
@@ -27,7 +25,6 @@ Button.propTypes = {
     onClick: PropTypes.func,
     variant: PropTypes.string,
     type: PropTypes.string,
-    width: PropTypes.string,
     disabled: PropTypes.bool,
 };
 
@@ -35,6 +32,5 @@ Button.defaultProps = {
     onClick: () => {},
     type: 'button',
     variant: '',
-    width: '100%',
     disabled: false,
 };

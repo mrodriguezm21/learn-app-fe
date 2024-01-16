@@ -1,0 +1,46 @@
+.profile__container {
+    display: grid;
+    margin: 0 35px;
+}
+.my-profile {
+    gap: 1em;
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.my-profile__avatar {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+.my-profile__avatar img {
+    width: 121px;
+    height: 121px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.my-profile .status__box {
+    display: flex;
+    flex-direction: column;
+}
+.my-profile__info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.my-profile__info__textbox {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+.my-profile__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}

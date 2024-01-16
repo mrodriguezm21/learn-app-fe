@@ -9,6 +9,7 @@ import { Registration } from './components/Registration/Registration';
 import { ROLS } from './constants';
 import registrationImgStudent from './assets/registration-student.png';
 import registrationImgTrainer from './assets/registration-trainer.png';
+import { Profile } from './components/Profile/Profile';
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                         />
                     }
                 />
+                <Route path="my-account" element={<Profile />} />
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
             <Footer />

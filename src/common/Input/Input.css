@@ -12,7 +12,7 @@
     line-height: 26px;
     background: #f8f9faff; /* neutral-150 */
     border-radius: 6px; /* border-m */
-    border-width: 2px;
+    border-width: 1px;
     border-color: #9095a0ff; /* neutral-500 */
     outline: none;
 }
@@ -23,6 +23,7 @@
 .textbox--error input,
 .textbox--error .label,
 .textbox--error select {
+    border-width: 1.5px;
     border-color: #ed5d56ff;
     color: #ed5d56ff;
 }
