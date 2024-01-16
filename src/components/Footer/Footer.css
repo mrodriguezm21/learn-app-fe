@@ -72,6 +72,13 @@ footer div .footer_ul {
     padding-right: 34px;
     height: 36px;
 }
+.footer__social ul {
+    display: flex;
+    gap: 1.5em;
+}
+.footer__social ul li {
+    cursor: pointer;
+}
 @media screen and (min-width: 600px) {
     footer {
         padding: 4em 6em 1.5em;

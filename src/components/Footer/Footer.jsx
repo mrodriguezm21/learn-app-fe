@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Button, Input, Logo } from '../../common';
 import './Footer.css';
 import { BUTTONS, FOOTER_CONSTANTS } from '../../constants';
+import twitterIcon from '../../assets/twitter.svg';
+import facebookIcon from '../../assets/facebook.svg';
+import youtubeIcon from '../../assets/youtube.svg';
 
 export function Footer() {
     const [email, setEmail] = useState('');
@@ -33,7 +36,19 @@ export function Footer() {
                     <li>Contact us</li>
                 </ul>
             </div>
-            <div className="footer__social" />
+            <div className="footer__social">
+                <ul>
+                    <li>
+                        <img src={twitterIcon} alt="twitter icon" />
+                    </li>
+                    <li>
+                        <img src={facebookIcon} alt="facebook icon" />
+                    </li>
+                    <li>
+                        <img src={youtubeIcon} alt="youtube icon" />
+                    </li>
+                </ul>
+            </div>
             <div className="footer__select">
                 <select name="" id="">
                     <option value="">English</option>
