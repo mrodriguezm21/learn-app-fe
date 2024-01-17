@@ -4,7 +4,7 @@ import { Button, Logo } from '../../common';
 import './Header.css';
 import { BUTTONS } from '../../constants';
 import { SideNav } from './components/SideNav';
-import optionsIcon from '../../assets/sliders.svg';
+import optionsIcon from '../../assets/menu-dots.svg';
 
 export function Header() {
     const navigate = useNavigate();
@@ -15,10 +15,19 @@ export function Header() {
     const handleJoinUs = () => {
         navigate('/join-us');
     };
+    const handleSideNav = () => {
+        setIsSideNavOpen(!isSideNavOpen);
+    };
     return (
         <header>
-            {isSideNavOpen && <SideNav />}
-            <img src={optionsIcon} alt="" className="setting_icon" />
+            {isSideNavOpen && <SideNav closeHandler={handleSideNav} />}
+            <button
+                type="button"
+                onClick={handleSideNav}
+                className="setting-icon"
+            >
+                <img src={optionsIcon} alt="setting icon" />
+            </button>
             <Link to="/" className="header__link">
                 <Logo />
             </Link>

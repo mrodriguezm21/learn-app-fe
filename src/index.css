@@ -38,6 +38,11 @@ button:focus,
 textarea:focus {
     outline: none;
 }
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
 
 .header {
     font-family: 'Montserrat', sans-serif;

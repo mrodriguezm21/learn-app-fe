@@ -5,12 +5,13 @@ header {
     border-radius: 6px;
     border-width: 1px;
     border-color: #dee1e6ff;
+    background: #fff;
     border-style: solid;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.setting_icon {
+.setting-icon {
     display: none;
 }
 .header__nav {
@@ -42,9 +43,10 @@ header {
     header {
         justify-content: unset;
     }
-    .setting_icon {
+    .setting-icon {
         display: block;
-        padding-left: 6px;
+        position: absolute;
+        left: 15px;
     }
     .header__link {
         margin: 0 auto;
