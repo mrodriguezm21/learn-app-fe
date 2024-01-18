@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 import { useReducer, useState } from 'react';
 import { Button, Input } from '../../common';
-import { BUTTONS, FORM_STATUS, REG_FORM, ROLS } from '../../constants';
+import {
+    BUTTONS,
+    FORM_STATUS,
+    REG_FORM,
+    ROLS,
+    SPECIALIZATIONS,
+} from '../../constants';
 import './Registration.css';
 
 const validateInputs = ({ formState }) => {
@@ -156,9 +162,14 @@ export function Registration({ rol, imgSrc }) {
                                     <option value="" hidden>
                                         {REG_FORM.SELECT_PLACEHOLDER}
                                     </option>
-                                    <option value="specialization1">
-                                        specialization1
-                                    </option>
+                                    {SPECIALIZATIONS.map((option) => (
+                                        <option
+                                            key={option}
+                                            value={option.toLowerCase()}
+                                        >
+                                            {option}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         ) : (

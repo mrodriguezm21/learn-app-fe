@@ -91,7 +91,7 @@ export function Login() {
                 <p>
                     Don&apos;t have an account?{' '}
                     <Link
-                        to="/register"
+                        to="/join-us"
                         className="signin__register-section__register-link"
                     >
                         Sign up

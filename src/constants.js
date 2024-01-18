@@ -1,3 +1,4 @@
+export const SPECIALIZATIONS = ['Java', 'PHP', 'SP1', 'SP2'];
 export const REGEXS = {
     ALPHABET: /^[a-zA-Z]+$/,
     ALPHANUMERIC: /^[a-zA-Z0-9\s{1}]*$/,

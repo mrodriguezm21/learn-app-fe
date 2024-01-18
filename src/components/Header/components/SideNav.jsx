@@ -82,6 +82,7 @@ export function SideNav({ closeHandler }) {
                             />
                         </g>
                     </svg>
+                    <span>Sign out</span>
                 </div>
             </aside>
             <div className="off__sidenav">
