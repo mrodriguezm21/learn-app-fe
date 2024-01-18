@@ -78,6 +78,10 @@ footer div .footer_ul {
 }
 .footer__social ul li {
     cursor: pointer;
+    display: flex;
+}
+.footer__social ul li img {
+    width: 100%;
 }
 @media screen and (min-width: 600px) {
     footer {
@@ -128,5 +132,10 @@ footer div .footer_ul {
 
     .footer__social {
         grid-area: footer__social;
+        justify-content: center;
+    }
+    .footer__social ul {
+        justify-content: flex-end;
+        padding-right: 1.3em;
     }
 }
