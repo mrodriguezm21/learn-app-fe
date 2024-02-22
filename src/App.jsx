@@ -10,8 +10,10 @@ import { ROLS } from './constants';
 import registrationImgStudent from './assets/registration-student.png';
 import registrationImgTrainer from './assets/registration-trainer.png';
 import { Profile } from './components/Profile/Profile';
+import { useUser } from './hooks/useUser';
 
 function App() {
+    useUser();
     return (
         <>
             <Header />

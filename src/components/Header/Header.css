@@ -38,6 +38,21 @@ header {
     align-items: center;
     gap: 0.5em;
 }
+.header__info-menu{
+    display: flex;
+    align-items: center;
+    gap: 2.5em;
+    margin-right: 1em;
+    position: relative;
+}
+.header__info-menu__img {
+    width: 51px;
+}
+.header__info-menu__img img {
+    width: 100%;
+    border-radius: 26px;
+}
+
 
 @media screen and (max-width: 600px) {
     header {
@@ -52,6 +67,9 @@ header {
         margin: 0 auto;
     }
     .header__nav {
+        display: none;
+    }
+    .header__info-menu {
         display: none;
     }
 }

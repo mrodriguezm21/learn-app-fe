@@ -1,8 +1,10 @@
-import { useState, useReducer } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useReducer, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button } from '../../common';
 import './Login.css';
 import { FORM_STATUS, LOG_FORM } from '../../constants';
+import { actionLogin, login, selectAuth } from './authSlice';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -17,7 +19,7 @@ function reducer(state, action) {
     }
 }
 
-const validateInputs = ({ formState }) => {
+const validateInputs = ({ formState, setFormStatus, setButtonDisabled }) => {
     const { username, password } = formState;
     const errors = {
         username: '',
@@ -29,10 +31,25 @@ const validateInputs = ({ formState }) => {
     if (!password) {
         errors.password = 'true';
     }
+    const isValid = Object.values(errors).some((error) => !error);
+    if (isValid) {
+        setFormStatus(FORM_STATUS.IDLE);
+        setButtonDisabled(false);
+    }
     return errors;
 };
 
 export function Login() {
+    const { isAuth } = useSelector(selectAuth);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isAuth) {
+            navigate('/');
+        }
+    }, [isAuth, navigate]);
     const [formState, formDispatch] = useReducer(reducer, {
         username: '',
         password: '',
@@ -45,20 +62,37 @@ export function Login() {
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const handleUsernameChange = (e) => {
+        setFormErrors({ ...formErrors, username: '' });
+        validateInputs({ formState, setFormStatus, setButtonDisabled });
         formDispatch({ type: 'setUsername', payload: e.target.value });
     };
     const handlePasswordChange = (e) => {
+        setFormErrors({ ...formErrors, password: '' });
+        validateInputs({ formState, setFormStatus, setButtonDisabled });
         formDispatch({ type: 'setPassword', payload: e.target.value });
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        const errors = validateInputs({ formState });
-        setFormErrors(errors);
+        const errors = validateInputs({
+            formState,
+            setFormStatus,
+            setButtonDisabled,
+        });
         const hasErrors = Object.values(errors).some((error) => error);
+        setFormErrors(errors);
         if (hasErrors) {
-            setFormStatus(FORM_STATUS.INVALID);
+            setFormStatus(FORM_STATUS.ERROR);
             setButtonDisabled(true);
             return;
+        }
+        // dispatch(actionLogin(formState));
+        const loginForm = {
+            email: formState.username,
+            password: formState.password,
+        };
+        dispatch(login(loginForm));
+        if (formState === !FORM_STATUS.ERROR) {
+            navigate('/');
         }
         setFormStatus(FORM_STATUS.VALID);
     };

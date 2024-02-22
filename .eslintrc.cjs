@@ -24,6 +24,9 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'import/prefer-default-export': 0,
         'no-unused-vars': 0,
+        'no-param-reassign': 0,
+        // 'jsx-a11y/click-events-have-key-events': 0,
+        'jsx-a11y/no-static-element-interactions': 0,
         'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
 };

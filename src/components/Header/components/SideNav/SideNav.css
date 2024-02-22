@@ -1,18 +1,20 @@
 .sidenav__container {
+    font-size: 0.8rem;
     display: flex;
     height: 100%;
     width: 100%;
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    left: -100%;
+    transition: all 0.5s ease;
 }
+
 .sidenav {
     height: 100%;
     width: 70%;
     background-color: #fff;
     overflow-x: hidden;
-    transition: 0.5s;
     box-shadow:
         0px 0px 1px #171a1f,
         0px 0px 2px #171a1f;
@@ -35,7 +37,8 @@
     gap: 1em;
 }
 .sidenav__user {
-    padding-left: 1em;
+    width: 100%;
+    padding-left: 0.4em;
     gap: 0.5em;
     display: flex;
     align-items: center;
@@ -48,6 +51,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.2em;
+}
+.sidenav__user__data__email {
+    overflow: hidden;
+    max-width: 8.5rem;
+    text-overflow: ellipsis;
 }
 .sidenav__user__xmark {
     align-self: flex-start;
@@ -73,6 +81,10 @@
     font-weight: 600;
 }
 .sidenav__signout {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 1em;
     padding-left: 1em;
     height: 30px;
     color: #565e6c;

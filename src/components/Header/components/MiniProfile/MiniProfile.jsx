@@ -1,38 +1,41 @@
-import './SideNav.css';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import xmark from '../../../assets/xmark.svg';
+import './MiniProfile.css';
+import { selectAuth } from '../../../Login/authSlice';
 
-export function SideNav({ closeHandler }) {
+export function MiniProfile({ closeHandler }) {
+    const { username, email } = useSelector(selectAuth);
+    const stopPropagation = (e) => {
+        e.stopPropagation();
+    };
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            closeHandler();
+        }
+    };
     return (
-        <div className="sidenav__container">
-            <aside className="sidenav">
-                <div className="sidenav__top-container">
-                    <div className="sidenav__user">
-                        <img
-                            className="sidenav__user__avatar"
-                            src="https://placehold.co/100x100"
-                            alt="profile pic"
-                        />
-                        <div className="sidenav__user__data">
-                            <span className="bold">John_12</span>
-                            <span>John_12@gmail.com</span>
-                        </div>
-                        <button
-                            type="button"
-                            className="sidenav__user__xmark"
-                            onClick={closeHandler}
-                        >
-                            <img src={xmark} alt="xmark to close the sidenav" />
-                        </button>
+        <div
+            className="miniprofile__container"
+            onClick={closeHandler}
+            onKeyDown={handleKeyPress}
+        >
+            <div
+                className="miniprofile"
+                onClick={stopPropagation}
+                onKeyDown={handleKeyPress}
+            >
+                <div className="miniprofile__user">
+                    <img
+                        className="miniprofile__user__avatar"
+                        src="https://placehold.co/100x100"
+                        alt="profile pic"
+                    />
+                    <div className="miniprofile__user__data">
+                        <span>{username}</span>
+                        <span className="gray">{email}</span>
                     </div>
-                    <ul className="sidenav__list">
-                        <li className="sidenav__list__item">Blog</li>
-                        <li className="sidenav__list__item">Pricing</li>
-                        <li className="sidenav__list__item">About Us</li>
-                        <li className="sidenav__list__item">My Account</li>
-                    </ul>
                 </div>
-                <div className="sidenav__signout">
+                <div className="miniprofile__signout">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="18"
@@ -84,18 +87,11 @@ export function SideNav({ closeHandler }) {
                     </svg>
                     <span>Sign out</span>
                 </div>
-            </aside>
-            <div className="off__sidenav">
-                <button
-                    type="button"
-                    onClick={closeHandler}
-                    aria-label="Close"
-                />
             </div>
         </div>
     );
 }
 
-SideNav.propTypes = {
+MiniProfile.propTypes = {
     closeHandler: PropTypes.func.isRequired,
 };
