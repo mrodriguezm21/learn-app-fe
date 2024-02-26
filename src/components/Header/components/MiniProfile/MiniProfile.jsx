@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import './MiniProfile.css';
-import { selectAuth } from '../../../Login/authSlice';
+import { logout, selectAuth } from '../../../../store/authSlice';
 
 export function MiniProfile({ closeHandler }) {
+    const dispatch = useDispatch();
     const { username, email } = useSelector(selectAuth);
     const stopPropagation = (e) => {
         e.stopPropagation();
@@ -12,6 +13,10 @@ export function MiniProfile({ closeHandler }) {
         if (e.key === 'Enter' || e.key === ' ') {
             closeHandler();
         }
+    };
+    const handleSignout = () => {
+        closeHandler();
+        dispatch(logout());
     };
     return (
         <div
@@ -35,7 +40,11 @@ export function MiniProfile({ closeHandler }) {
                         <span className="gray">{email}</span>
                     </div>
                 </div>
-                <div className="miniprofile__signout">
+                <button
+                    type="button"
+                    className="miniprofile__signout"
+                    onClick={handleSignout}
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="18"
@@ -86,7 +95,7 @@ export function MiniProfile({ closeHandler }) {
                         </g>
                     </svg>
                     <span>Sign out</span>
-                </div>
+                </button>
             </div>
         </div>
     );

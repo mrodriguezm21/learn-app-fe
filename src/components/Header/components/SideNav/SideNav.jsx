@@ -1,11 +1,16 @@
 import './SideNav.css';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import xmark from '../../../../assets/xmark.svg';
-import { selectAuth } from '../../../Login/authSlice';
+import { logout, selectAuth } from '../../../../store/authSlice';
 
 export function SideNav({ closeHandler, isSideNavOpen }) {
+    const dispatch = useDispatch();
     const { username, email } = useSelector(selectAuth);
+    const handleSignout = () => {
+        closeHandler();
+        dispatch(logout());
+    };
     return (
         <div
             className="sidenav__container"
@@ -40,7 +45,11 @@ export function SideNav({ closeHandler, isSideNavOpen }) {
                         <li className="sidenav__list__item">My Account</li>
                     </ul>
                 </div>
-                <div className="sidenav__signout">
+                <button
+                    type="button"
+                    className="sidenav__signout"
+                    onClick={handleSignout}
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="18"
@@ -91,7 +100,7 @@ export function SideNav({ closeHandler, isSideNavOpen }) {
                         </g>
                     </svg>
                     <span>Sign out</span>
-                </div>
+                </button>
             </aside>
             <div className="off__sidenav">
                 <button

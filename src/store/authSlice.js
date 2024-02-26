@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getMeService, loginService } from '../../services';
+import { getMeService, loginService, logoutService } from '../services';
 
 const initialState = {
     isAuth: false,
@@ -11,6 +11,7 @@ const initialState = {
 
 export const login = createAsyncThunk('auth/login', loginService);
 export const getMe = createAsyncThunk('auth/getMe', getMeService);
+export const logout = createAsyncThunk('auth/logout', logoutService);
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -49,6 +50,13 @@ export const authSlice = createSlice({
             state.username = action.payload?.username;
             state.email = action.payload?.email;
             state.role = action.payload?.role;
+        });
+        builder.addCase(logout.rejected, (state, action) => {});
+        builder.addCase(logout.fulfilled, (state, action) => {
+            state.isAuth = false;
+            state.username = '';
+            state.email = '';
+            state.role = '';
         });
     },
 });

@@ -1,4 +1,8 @@
-import { setItemLocalStorage } from '../helpers/localStorageManager';
+import {
+    clearLocalStorage,
+    getItemLocalStorage,
+    setItemLocalStorage,
+} from '../helpers/localStorageManager';
 
 const BASE_URL =
     'https://019j9minrb.execute-api.us-east-1.amazonaws.com/dev/auth';
@@ -20,6 +24,25 @@ export async function loginService({ email, password }) {
         return userData;
     } catch (error) {
         throw new Error('Invalid credentials');
+    }
+}
+
+export async function logoutService() {
+    try {
+        const token = getItemLocalStorage('token');
+        const response = await fetch(`${BASE_URL}/logout`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Logout failed');
+        }
+        clearLocalStorage();
+    } catch (error) {
+        throw new Error('Logout failed');
     }
 }
 

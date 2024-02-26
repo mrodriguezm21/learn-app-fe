@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItemLocalStorage } from '../helpers/localStorageManager';
-import { getMe, selectAuth } from '../components/Login/authSlice';
+import { getMe, selectAuth } from '../store/authSlice';
 
 const checkLoginStatus = () => {
     return Boolean(getItemLocalStorage('token'));

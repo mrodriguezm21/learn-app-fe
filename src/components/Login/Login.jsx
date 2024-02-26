@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button } from '../../common';
 import './Login.css';
 import { FORM_STATUS, LOG_FORM } from '../../constants';
-import { actionLogin, login, selectAuth } from './authSlice';
+import { selectAuth, login } from '../../store/authSlice';
 
 function reducer(state, action) {
     switch (action.type) {

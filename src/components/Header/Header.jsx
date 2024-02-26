@@ -1,16 +1,22 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Skeleton } from '@mui/material';
 import { Button, Logo } from '../../common';
 import './Header.css';
 import { BUTTONS } from '../../constants';
 import { SideNav } from './components/SideNav/SideNav';
 import optionsIcon from '../../assets/menu-dots.svg';
-import { selectAuth } from '../Login/authSlice';
+import { selectAuth } from '../../store/authSlice';
 import { MiniProfile } from './components/MiniProfile/MiniProfile';
+
+function checkloginStatus() {
+    return Boolean(localStorage.getItem('token'));
+}
 
 export function Header() {
     const navigate = useNavigate();
+    const loginStatus = checkloginStatus();
     const { isAuth, username } = useSelector(selectAuth);
     const [isSideNavOpen, setIsSideNavOpen] = useState(false);
     const [isMiniProfileOpen, setIsMiniProfileOpen] = useState(false);
@@ -52,17 +58,21 @@ export function Header() {
                         <li className="header__nav__menu__item">About us</li>
                     </ul>
                 </nav>
-                {!isAuth && (
-                    <aside className="header__nav__log-buttons">
-                        <Button variant="tertiary" onClick={handleLogin}>
-                            {BUTTONS.SIGN_IN}
-                        </Button>
-                        <Button onClick={handleJoinUs}>
-                            {BUTTONS.JOIN_US}
-                        </Button>
-                    </aside>
-                )}
             </div>
+            {!loginStatus && (
+                <aside className="header__nav__log-buttons">
+                    <Button variant="tertiary" onClick={handleLogin}>
+                        {BUTTONS.SIGN_IN}
+                    </Button>
+                    <Button onClick={handleJoinUs}>{BUTTONS.JOIN_US}</Button>
+                </aside>
+            )}
+            {loginStatus && !isAuth && (
+                <div className="header__info-menu">
+                    <Skeleton variant="text" width={70} height={30} />
+                    <Skeleton variant="circular" width={51} height={51} />
+                </div>
+            )}
             {isAuth && (
                 <div className="header__info-menu">
                     {!isMiniProfileOpen && (
