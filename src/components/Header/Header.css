@@ -9,7 +9,6 @@ header {
     border-style: solid;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 .setting-icon {
     display: none;

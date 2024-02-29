@@ -58,3 +58,14 @@ export const FOOTER_CONSTANTS = {
     INPUT: 'Input your email',
     BUTTON: 'Subscribe',
 };
+
+export const URL_PATHS = {
+    LOGIN: '/login',
+};
+
+export const STATUS = {
+    IDLE: 'idle',
+    LOADING: 'loading',
+    SUCCEEDED: 'succeeded',
+    FAILED: 'failed',
+};

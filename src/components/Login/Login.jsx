@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button } from '../../common';
 import './Login.css';
-import { FORM_STATUS, LOG_FORM } from '../../constants';
+import { FORM_STATUS, LOG_FORM, STATUS } from '../../constants';
 import { selectAuth, login } from '../../store/authSlice';
 
 function reducer(state, action) {
@@ -40,7 +40,7 @@ const validateInputs = ({ formState, setFormStatus, setButtonDisabled }) => {
 };
 
 export function Login() {
-    const { isAuth } = useSelector(selectAuth);
+    const { isAuth, statusLogin } = useSelector(selectAuth);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -116,7 +116,10 @@ export function Login() {
                     placeholder={LOG_FORM.PASSWORD_PLACEHOLDER}
                     error={formErrors.password}
                 />
-                <Button type="submit" disabled={buttonDisabled}>
+                <Button
+                    type="submit"
+                    disabled={buttonDisabled || statusLogin === STATUS.LOADING}
+                >
                     {LOG_FORM.SIGNIN}
                 </Button>
             </form>

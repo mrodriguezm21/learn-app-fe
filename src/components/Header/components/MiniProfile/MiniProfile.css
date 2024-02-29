@@ -42,7 +42,13 @@
     flex-direction: column;
     gap: 0.2em;
 }
-.miniprofile__signout {
+.miniprofile__menu{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-bottom: 5em;
+}
+.miniprofile__menu__options, .miniprofile__signout{
     display: flex;
     padding-top: 1em;
     gap: 1em;
@@ -51,9 +57,10 @@
     height: 30px;
     color: #565e6c;
     cursor: pointer;
-    border-top: #dee1e6ff 1px solid;
-
 }
-.miniprofile__signout:hover {
+.miniprofile__signout {
+    border-top: #dee1e6ff 1px solid;
+}
+.miniprofile__signout:hover, .miniprofile__menu__options:hover{
     color: #6355d8;
 }

@@ -1,10 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Skeleton } from '@mui/material';
 import { Button, Logo } from '../../common';
 import './Header.css';
-import { BUTTONS } from '../../constants';
+import { BUTTONS, URL_PATHS } from '../../constants';
 import { SideNav } from './components/SideNav/SideNav';
 import optionsIcon from '../../assets/menu-dots.svg';
 import { selectAuth } from '../../store/authSlice';
@@ -15,6 +15,7 @@ function checkloginStatus() {
 }
 
 export function Header() {
+    const { pathname } = useLocation();
     const navigate = useNavigate();
     const loginStatus = checkloginStatus();
     const { isAuth, username } = useSelector(selectAuth);
@@ -34,6 +35,7 @@ export function Header() {
         setIsMiniProfileOpen(!isMiniProfileOpen);
         document.body.style.overflow = isMiniProfileOpen ? 'auto' : 'hidden';
     };
+
     return (
         <header>
             <SideNav
@@ -59,7 +61,7 @@ export function Header() {
                     </ul>
                 </nav>
             </div>
-            {!loginStatus && (
+            {!loginStatus && pathname !== URL_PATHS.LOGIN && (
                 <aside className="header__nav__log-buttons">
                     <Button variant="tertiary" onClick={handleLogin}>
                         {BUTTONS.SIGN_IN}

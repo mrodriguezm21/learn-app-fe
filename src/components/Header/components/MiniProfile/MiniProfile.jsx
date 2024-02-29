@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import './MiniProfile.css';
+import { useNavigate } from 'react-router';
 import { logout, selectAuth } from '../../../../store/authSlice';
 
 export function MiniProfile({ closeHandler }) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { username, email } = useSelector(selectAuth);
     const stopPropagation = (e) => {
         e.stopPropagation();
@@ -13,6 +15,10 @@ export function MiniProfile({ closeHandler }) {
         if (e.key === 'Enter' || e.key === ' ') {
             closeHandler();
         }
+    };
+    const handleMyAccount = () => {
+        navigate('my-account');
+        closeHandler();
     };
     const handleSignout = () => {
         closeHandler();
@@ -39,6 +45,49 @@ export function MiniProfile({ closeHandler }) {
                         <span>{username}</span>
                         <span className="gray">{email}</span>
                     </div>
+                </div>
+                <div className="miniprofile__menu">
+                    <button
+                        type="button"
+                        className="miniprofile__menu__options"
+                        onClick={handleMyAccount}
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M17.9907 19.2815C17.8749 17.2346 16.7075 16.5849 15.0001 16.0158C13.6955 15.5812 13.3364 14.2115 13.2378 13.4846"
+                                stroke="currentColor"
+                                strokeWidth="2.05714"
+                                strokeMiterlimit="10"
+                            />
+                            <path
+                                d="M10.7615 13.4838C10.6647 14.2072 10.3124 15.5786 9.0001 16.0158C7.29267 16.5849 6.12353 17.2329 6.00781 19.2798"
+                                stroke="currentColor"
+                                strokeWidth="2.05714"
+                                strokeMiterlimit="10"
+                            />
+                            <path
+                                d="M11.9999 13.7143C10.1064 13.7143 8.57129 12.1791 8.57129 10.2857L8.57129 9.42857C8.57129 7.53514 10.1064 6 11.9999 6C13.8933 6 15.4284 7.53514 15.4284 9.42857V10.2857C15.4284 12.1791 13.8933 13.7143 11.9999 13.7143Z"
+                                stroke="currentColor"
+                                strokeWidth="2.05714"
+                                strokeMiterlimit="10"
+                                strokeLinecap="square"
+                            />
+                            <path
+                                d="M11.9999 21.4286C17.2071 21.4286 21.4284 17.2072 21.4284 12C21.4284 6.79273 17.2071 2.57141 11.9999 2.57141C6.7926 2.57141 2.57129 6.79273 2.57129 12C2.57129 17.2072 6.7926 21.4286 11.9999 21.4286Z"
+                                stroke="currentColor"
+                                strokeWidth="2.05714"
+                                strokeMiterlimit="10"
+                                strokeLinecap="square"
+                            />
+                        </svg>
+                        <span>My Account</span>
+                    </button>
                 </div>
                 <button
                     type="button"
