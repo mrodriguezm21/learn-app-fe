@@ -23,8 +23,17 @@
 .home__player {
     margin: 0 auto;
     background: #666;
-    width: 60%;
-    height: 400px;
+    width: 65%;
+    height: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.home__player img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 6px;
 }
 .home__join-us {
     display: flex;
@@ -89,4 +98,41 @@
 .home__join-us__top-dr img,
 .home__join-us__bottom-dr img {
     width: 85%;
+}
+
+@media screen and (max-width: 600px) {
+    .home__learning__text p {
+        max-width: 90%;
+    }
+    .home__player {
+        width: 90%;
+        height: 200px;
+    }
+    .home__join-us__text {
+        width: 90%;
+    }
+    .home__join-us__text p {
+        max-width: unset;
+    }
+    .home__join-us__top-dr img,
+    .home__join-us__bottom-dr img {
+        width: unset;
+    }
+    .home__join-us__top-dr {
+        top: -325px;
+        left: -165px;
+    }
+    .home__join-us__bottom-dr {
+        right: -160px;
+        bottom: -335px;
+    }
+
+    .home__join-us__border-circle {
+        top: -375px;
+        right: -330px;
+    }
+    .oval {
+        left: -150px;
+        bottom: -210px;
+    }
 }

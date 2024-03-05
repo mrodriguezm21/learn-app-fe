@@ -41,7 +41,7 @@ function App() {
                     }
                 />
                 <Route path="my-account" element={<Profile />} />
-                <Route path="*" element={<Navigate to="/login" />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <Footer />
             <Toaster position="top-right" reverseOrder />

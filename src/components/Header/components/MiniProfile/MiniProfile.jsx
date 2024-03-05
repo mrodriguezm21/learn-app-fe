@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import './MiniProfile.css';
 import { useNavigate } from 'react-router';
-import { logout, selectAuth } from '../../../../store/authSlice';
+import { logout, selectUserInfo } from '../../../../store/authSlice';
 
 export function MiniProfile({ closeHandler }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { username, email } = useSelector(selectAuth);
+    const { username, email } = useSelector(selectUserInfo);
     const stopPropagation = (e) => {
         e.stopPropagation();
     };

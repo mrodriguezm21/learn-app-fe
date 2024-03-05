@@ -71,4 +71,7 @@ header {
     .header__info-menu {
         display: none;
     }
+    .header__nav__log-buttons{
+        display: none;
+    }
 }

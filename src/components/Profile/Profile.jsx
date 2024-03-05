@@ -1,13 +1,25 @@
 import { useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
+import { useSelector } from 'react-redux';
 import { Button } from '../../common';
 import { BUTTONS, BUTTONS_VARIANTS } from '../../constants';
 import './Profile.css';
 import 'ag-grid-community/styles/ag-grid.css'; // Core CSS
 import 'ag-grid-community/styles/ag-theme-quartz.css'; // Theme
 import checkIcon from '../../assets/check.svg';
+import { selectUserInfo } from '../../store/authSlice';
 
 export function Profile() {
+    const {
+        firstName,
+        lastName,
+        username,
+        email,
+        address,
+        specialization,
+        dateOfBirth,
+        avatar,
+    } = useSelector(selectUserInfo);
     const [rowData, setRowData] = useState([
         { name: 'Elizabeth Lopez', status: true },
         { name: 'Matthew Martinez', status: true },
@@ -35,7 +47,10 @@ export function Profile() {
             <section className="my-profile">
                 <h2 className="subheader">My profile</h2>
                 <div className="my-profile__avatar">
-                    <img src="https://placehold.co/600x400" alt="profile pic" />
+                    <img
+                        src={avatar ?? 'https://placehold.co/600x400'}
+                        alt="profile pic"
+                    />
                     <div className="status__box">
                         <span className="bold">Status</span>
                         <div className="status--active">
@@ -47,27 +62,27 @@ export function Profile() {
                 <div className="my-profile__info">
                     <div className="my-profile__info__textbox">
                         <span className="bold">First Name</span>
-                        <span>John</span>
+                        <span>{firstName}</span>
                     </div>
                     <div className="my-profile__info__textbox">
                         <span className="bold">Last Name</span>
-                        <span>Black</span>
+                        <span>{lastName}</span>
                     </div>
                     <div className="my-profile__info__textbox">
                         <span className="bold">User Name</span>
-                        <span>Jihn_12</span>
+                        <span>{username}</span>
                     </div>
                     <div className="my-profile__info__textbox">
                         <span className="bold">Specialization</span>
-                        <span>Java</span>
+                        <span>{specialization ?? 'Update your profile'}</span>
                     </div>
                     <div className="my-profile__info__textbox">
                         <span className="bold">Address</span>
-                        <span>456 Lake Shore DrIL 6061lUnited States</span>
+                        <span>{address ?? 'Unknown'}</span>
                     </div>
                     <div className="my-profile__info__textbox">
                         <span className="bold">Email</span>
-                        <span>Jiohn_12@gmail.com</span>
+                        <span>{email}</span>
                     </div>
                 </div>
                 <div className="my-profile__actions">
@@ -80,11 +95,12 @@ export function Profile() {
             <section className="my-students">
                 <h2 className="subheader">My Students</h2>
 
-                <div
-                    className="ag-theme-quartz"
-                    style={{ height: 400, width: 310 }}
-                >
-                    <AgGridReact rowData={rowData} columnDefs={colfDefs} />
+                <div className="ag-theme-quartz my-students__table">
+                    <AgGridReact
+                        rowData={rowData}
+                        columnDefs={colfDefs}
+                        autoSizeStrategy={{ type: 'fitGridWidth' }}
+                    />
                 </div>
             </section>
         </section>

@@ -1,6 +1,7 @@
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import dottedRectangle from '../../assets/dotted-rectangle.svg';
+import player from '../../assets/player-img.png';
 import { Button } from '../../common';
 import { BUTTONS } from '../../constants';
 
@@ -21,7 +22,9 @@ export function Home() {
                         learning!
                     </p>
                 </article>
-                <div className="home__player" />
+                <div className="home__player">
+                    <img src={player} alt="player pic" />
+                </div>
             </section>
             <section className="home__join-us">
                 <div className="home__join-us__top-dr">

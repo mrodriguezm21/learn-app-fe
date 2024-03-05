@@ -7,7 +7,7 @@ import './Header.css';
 import { BUTTONS, URL_PATHS } from '../../constants';
 import { SideNav } from './components/SideNav/SideNav';
 import optionsIcon from '../../assets/menu-dots.svg';
-import { selectAuth } from '../../store/authSlice';
+import { selectAuth, selectUserInfo } from '../../store/authSlice';
 import { MiniProfile } from './components/MiniProfile/MiniProfile';
 
 function checkloginStatus() {
@@ -18,7 +18,8 @@ export function Header() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const loginStatus = checkloginStatus();
-    const { isAuth, username } = useSelector(selectAuth);
+    const { isAuth } = useSelector(selectAuth);
+    const { username } = useSelector(selectUserInfo);
     const [isSideNavOpen, setIsSideNavOpen] = useState(false);
     const [isMiniProfileOpen, setIsMiniProfileOpen] = useState(false);
     const handleLogin = () => {

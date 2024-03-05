@@ -5,9 +5,12 @@ import { STATUS } from '../constants';
 
 const initialState = {
     isAuth: false,
-    username: '',
-    email: '',
-    role: '',
+    userInfo: {
+        username: '',
+        email: '',
+        role: '',
+        firstName: '',
+    },
     statusLogin: STATUS.IDLE,
 };
 
@@ -46,9 +49,7 @@ export const authSlice = createSlice({
             });
             state.statusLogin = STATUS.SUCCEEDED;
             state.isAuth = true;
-            state.username = action.payload?.username;
-            state.email = action.payload?.email;
-            state.role = action.payload?.role;
+            state.userInfo = action.payload;
         });
         builder.addCase(login.rejected, (state, action) => {
             toast.error('Login failed', {
@@ -66,9 +67,7 @@ export const authSlice = createSlice({
         builder.addCase(getMe.fulfilled, (state, action) => {
             state.statusLogin = STATUS;
             state.isAuth = true;
-            state.username = action.payload?.username;
-            state.email = action.payload?.email;
-            state.role = action.payload?.role;
+            state.userInfo = action.payload;
         });
         builder.addCase(logout.fulfilled, (state, action) => {
             toast.success('Successfully logged out', {
@@ -79,15 +78,14 @@ export const authSlice = createSlice({
                 duration: 1000,
             });
             state.isAuth = false;
-            state.username = '';
-            state.email = '';
-            state.role = '';
+            state.userInfo = {};
         });
         builder.addCase(logout.rejected, (state, action) => {});
     },
 });
 
 export const selectAuth = (state) => state.auth;
+export const selectUserInfo = (state) => state.auth.userInfo;
 
 export const { login: actionLogin, logout: actionLogout } = authSlice.actions;
 

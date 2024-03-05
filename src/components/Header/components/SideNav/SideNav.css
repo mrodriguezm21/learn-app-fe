@@ -66,21 +66,23 @@
     gap: 0.5em;
     flex-direction: column;
 }
-.sidenav__list__item {
+.sidenav__list__item{
     padding-left: 1em;
     height: 30px;
     cursor: pointer;
-    color: #565e6cff;
     font-size: 14px;
     display: flex;
     align-items: center;
+}
+.sidenav__list__item__button {
+    color: #565e6cff;
 }
 .sidenav__list__item:hover {
     border-left: 2px solid #6355d8ff;
     color: #6355d8ff;
     font-weight: 600;
 }
-.sidenav__signout {
+.sidenav__log {
     display: flex;
     gap: 1em;
     align-items: center;
@@ -90,6 +92,6 @@
     color: #565e6c;
     cursor: pointer;
 }
-.sidenav__signout:hover {
+.sidenav__log:hover {
     color: #6355d8;
 }
