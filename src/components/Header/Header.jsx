@@ -22,11 +22,21 @@ export function Header() {
     const { username } = useSelector(selectUserInfo);
     const [isSideNavOpen, setIsSideNavOpen] = useState(false);
     const [isMiniProfileOpen, setIsMiniProfileOpen] = useState(false);
+
+    const handleBlog = () => {
+        navigate('blog');
+    };
+    const handlePricing = () => {
+        navigate('pricing');
+    };
+    const handleAboutUs = () => {
+        navigate('about-us');
+    };
     const handleLogin = () => {
-        navigate('/login');
+        navigate('login');
     };
     const handleJoinUs = () => {
-        navigate('/join-us');
+        navigate('join-us');
     };
     const handleSideNav = () => {
         setIsSideNavOpen(!isSideNavOpen);
@@ -56,9 +66,33 @@ export function Header() {
             <div className="header__nav">
                 <nav className="header__nav">
                     <ul className="header__nav__menu">
-                        <li className="header__nav__menu__item">Blog</li>
-                        <li className="header__nav__menu__item">Pricing</li>
-                        <li className="header__nav__menu__item">About us</li>
+                        <li>
+                            <button
+                                className="header__nav__menu__item"
+                                type="button"
+                                onClick={handleBlog}
+                            >
+                                Blog
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                className="header__nav__menu__item"
+                                type="button"
+                                onClick={handlePricing}
+                            >
+                                Pricing
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                className="header__nav__menu__item"
+                                type="button"
+                                onClick={handleAboutUs}
+                            >
+                                About us
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -12,6 +12,7 @@ import registrationImgStudent from './assets/registration-student.png';
 import registrationImgTrainer from './assets/registration-trainer.png';
 import { Profile } from './components/Profile/Profile';
 import { useUser } from './hooks/useUser';
+import { Blog } from './components/Blog/Blog';
 
 function App() {
     useUser();
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join-us" element={<JoinUs />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route
                     path="/join-us/trainer"
                     element={

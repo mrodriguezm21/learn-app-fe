@@ -1,0 +1,19 @@
+.blog {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto 5em;
+    text-align: center;
+    align-items: center;
+    gap: 2em;
+}
+.blog__cards_container {
+    margin-top: 3em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    gap: 20px;
+}
+.blog Button {
+    width: fit-content;
+}
