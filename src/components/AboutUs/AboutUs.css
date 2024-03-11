@@ -1,0 +1,53 @@
+.about-us {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto 2em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+
+.about-us__main-text {
+    margin-top: 2em;
+    color: #9095a0ff;
+}
+
+.about-us__banner {
+    width: 95%;
+}
+.about-us__banner img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 9px #171a1f, 0px 0px 2px #171a1f;
+}
+.about-us__team {
+    width: 100%;
+    display: grid;
+    gap: 2.5em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.about-us__team__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-us__team__heading h2 {
+    font-size: 2.5rem;
+}
+.about-us__team__heading p {
+    color: #9095a0ff;
+}
+
+@media screen and (min-width: 768px) {
+    .about-us__main-text {
+        margin-top: 2em;
+        color: #9095a0ff;
+        max-width: 85ch;
+    }
+    .about-us__team__heading {
+        text-align: left;
+    }
+}
