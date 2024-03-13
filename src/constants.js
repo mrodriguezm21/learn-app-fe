@@ -47,6 +47,9 @@ export const REG_FORM = {
     SELECT_PLACEHOLDER: 'Please select',
 };
 
+export const ERRORS = {
+    EMAIL_TAKEN: 'Email is already taken',
+};
 export const FORM_STATUS = {
     IDLE: 'idle',
     LOADING: 'loading',

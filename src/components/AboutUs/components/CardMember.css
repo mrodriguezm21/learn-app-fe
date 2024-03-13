@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    background-color: #FAFAFB;
+    background-color: #fafafb;
 }
 .card-member__image {
     width: 175px;
@@ -15,17 +15,13 @@
     border-radius: 87px;
     margin-top: 1em;
 }
-/* .card-member__image:nth-child(1) {
-    object-position: center -25px;
-    border-color: #FF5C00;
-} */
-.card-member:nth-of-type(1) img{
+.card-member:nth-of-type(1) img {
     object-position: center -25px;
 }
-.card-member:nth-of-type(2) img{
+.card-member:nth-of-type(2) img {
     object-position: -50px;
 }
-.card-member:nth-of-type(3) img{
+.card-member:nth-of-type(3) img {
     object-position: -75px;
 }
 .card-member div {
@@ -35,11 +31,11 @@
     justify-content: center;
     gap: 0.3em;
 }
-.card-member__name{
+.card-member__name {
     font-size: 1.5rem;
 }
 .card-member__profession {
-    color: #6355D8;
+    color: #6355d8;
 }
 .card-member__description {
     color: #424955;

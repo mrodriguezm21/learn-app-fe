@@ -1,34 +1,57 @@
 import PropTypes from 'prop-types';
 import { useReducer, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input } from '../../common';
 import {
     BUTTONS,
-    FORM_STATUS,
+    REGEXS,
     REG_FORM,
     ROLS,
     SPECIALIZATIONS,
+    STATUS,
 } from '../../constants';
 import './Registration.css';
+import {
+    actionResetRegister,
+    registerStudent,
+    registerTrainer,
+    selectRegister,
+} from '../../store/registerSlice';
+import { useRegisterRedirect } from '../../hooks/useRegisterRedirect';
 
-const validateInputs = ({ formState }) => {
-    const { email, firstname, lastname, specialization } = formState;
+const validateInputs = ({
+    formState,
+    setButtonDisabled,
+    checkRegex = false,
+    role,
+}) => {
+    const { email, firstName, lastName, specialization } = formState;
     const errors = {
         email: '',
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         specialization: '',
     };
     if (!email) {
         errors.email = 'true';
     }
-    if (!firstname) {
-        errors.firstname = 'true';
+    if (!firstName) {
+        errors.firstName = 'true';
     }
-    if (!lastname) {
-        errors.lastname = 'true';
+    if (!lastName) {
+        errors.lastName = 'true';
     }
-    if (!specialization) {
+    if (role === ROLS.TRAINER && !specialization) {
         errors.specialization = 'true';
+    }
+    if (checkRegex) {
+        if (!REGEXS.EMAIL.test(email)) {
+            errors.email = 'true';
+        }
+    }
+    const isValid = Object.values(errors).some((error) => !error);
+    if (isValid) {
+        setButtonDisabled(false);
     }
     return errors;
 };
@@ -36,10 +59,10 @@ const validateInputs = ({ formState }) => {
 function reducer(state, action) {
     switch (action.type) {
         case 'setFirstname': {
-            return { ...state, firstname: action.payload };
+            return { ...state, firstName: action.payload };
         }
         case 'setLastname': {
-            return { ...state, lastname: action.payload };
+            return { ...state, lastName: action.payload };
         }
         case 'setEmail': {
             return { ...state, email: action.payload };
@@ -59,35 +82,49 @@ function reducer(state, action) {
 }
 
 export function Registration({ rol, imgSrc }) {
+    const dispatch = useDispatch();
+    useRegisterRedirect();
+    const { statusRegister, errorRegister } = useSelector(selectRegister);
+
     const formInitialState =
         rol === ROLS.TRAINER
             ? {
-                  firstname: '',
-                  lastname: '',
+                  firstName: '',
+                  lastName: '',
                   email: '',
                   specialization: '',
               }
             : {
-                  firstname: '',
-                  lastname: '',
+                  firstName: '',
+                  lastName: '',
                   email: '',
                   dateOfBirth: '',
                   address: '',
               };
     const [formState, formDispatch] = useReducer(reducer, formInitialState);
     const [formErrors, setFormErrors] = useState(formInitialState);
-    const [formStatus, setFormStatus] = useState(FORM_STATUS.IDLE);
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const handleFirstnameChange = (e) => {
+        setFormErrors({ ...formErrors, firstName: '' });
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setFirstname', payload: e.target.value });
     };
     const handleLastnameChange = (e) => {
+        setFormErrors({ ...formErrors, lastName: '' });
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setLastname', payload: e.target.value });
     };
     const handleEmailChange = (e) => {
+        setFormErrors({ ...formErrors, email: '' });
+        if (statusRegister === STATUS.FAILED) {
+            dispatch(actionResetRegister());
+        }
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setEmail', payload: e.target.value });
     };
     const handleSpecializationChange = (e) => {
+        setFormErrors({ ...formErrors, specialization: '' });
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setSpecialization', payload: e.target.value });
     };
     const handleDateOfBirthChange = (e) => {
@@ -98,15 +135,23 @@ export function Registration({ rol, imgSrc }) {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        const errors = validateInputs({ formState });
+        const errors = validateInputs({
+            formState,
+            setButtonDisabled,
+            checkRegex: true,
+            role: rol,
+        });
         setFormErrors(errors);
         const hasErrors = Object.values(errors).some((error) => error);
         if (hasErrors) {
-            setFormStatus(FORM_STATUS.INVALID);
             setButtonDisabled(true);
             return;
         }
-        setFormStatus(FORM_STATUS.VALID);
+        if (rol === ROLS.TRAINER) {
+            dispatch(registerTrainer(formState));
+        } else {
+            dispatch(registerStudent(formState));
+        }
     };
     return (
         <section className="registration__container">
@@ -121,23 +166,23 @@ export function Registration({ rol, imgSrc }) {
                         <Input
                             label={REG_FORM.FIRST_NAME}
                             placeholder={REG_FORM.PLACEHOLDER}
-                            value={formState.firstname}
+                            value={formState.firstName}
                             onChange={handleFirstnameChange}
-                            error={formErrors.firstname}
+                            error={formErrors.firstName}
                         />
                         <Input
                             label={REG_FORM.LAST_NAME}
                             placeholder={REG_FORM.PLACEHOLDER}
-                            value={formState.lastname}
+                            value={formState.lastName}
                             onChange={handleLastnameChange}
-                            error={formErrors.lastname}
+                            error={formErrors.lastName}
                         />
                         <Input
                             label={REG_FORM.EMAIL}
                             placeholder={REG_FORM.PLACEHOLDER}
                             value={formState.email}
                             onChange={handleEmailChange}
-                            error={formErrors.email}
+                            error={formErrors.email || errorRegister}
                         />
                         {rol === ROLS.TRAINER ? (
                             <div
@@ -192,7 +237,12 @@ export function Registration({ rol, imgSrc }) {
                             </>
                         )}
                     </div>
-                    <Button type={BUTTONS.SUBMIT} disabled={buttonDisabled}>
+                    <Button
+                        type={BUTTONS.SUBMIT}
+                        disabled={
+                            buttonDisabled || statusRegister === STATUS.LOADING
+                        }
+                    >
                         {BUTTONS.SUBMIT}
                     </Button>
                 </div>

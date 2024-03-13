@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button } from '../../common';
 import './Login.css';
-import { FORM_STATUS, LOG_FORM, STATUS } from '../../constants';
+import { FORM_STATUS, LOG_FORM, REGEXS, STATUS } from '../../constants';
 import { selectAuth, login } from '../../store/authSlice';
 
 function reducer(state, action) {
@@ -19,7 +19,11 @@ function reducer(state, action) {
     }
 }
 
-const validateInputs = ({ formState, setFormStatus, setButtonDisabled }) => {
+const validateInputs = ({
+    formState,
+    setButtonDisabled,
+    checkRegex = false,
+}) => {
     const { username, password } = formState;
     const errors = {
         username: '',
@@ -31,9 +35,13 @@ const validateInputs = ({ formState, setFormStatus, setButtonDisabled }) => {
     if (!password) {
         errors.password = 'true';
     }
+    if (checkRegex) {
+        if (!REGEXS.EMAIL.test(username)) {
+            errors.username = 'true';
+        }
+    }
     const isValid = Object.values(errors).some((error) => !error);
     if (isValid) {
-        setFormStatus(FORM_STATUS.IDLE);
         setButtonDisabled(false);
     }
     return errors;
@@ -58,34 +66,31 @@ export function Login() {
         username: '',
         password: '',
     });
-    const [formStatus, setFormStatus] = useState(FORM_STATUS.IDLE);
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const handleUsernameChange = (e) => {
         setFormErrors({ ...formErrors, username: '' });
-        validateInputs({ formState, setFormStatus, setButtonDisabled });
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setUsername', payload: e.target.value });
     };
     const handlePasswordChange = (e) => {
         setFormErrors({ ...formErrors, password: '' });
-        validateInputs({ formState, setFormStatus, setButtonDisabled });
+        validateInputs({ formState, setButtonDisabled });
         formDispatch({ type: 'setPassword', payload: e.target.value });
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         const errors = validateInputs({
             formState,
-            setFormStatus,
             setButtonDisabled,
+            checkRegex: true,
         });
         const hasErrors = Object.values(errors).some((error) => error);
         setFormErrors(errors);
         if (hasErrors) {
-            setFormStatus(FORM_STATUS.ERROR);
             setButtonDisabled(true);
             return;
         }
-        // dispatch(actionLogin(formState));
         const loginForm = {
             email: formState.username,
             password: formState.password,
@@ -94,7 +99,6 @@ export function Login() {
         if (formState === !FORM_STATUS.ERROR) {
             navigate('/');
         }
-        setFormStatus(FORM_STATUS.VALID);
     };
     return (
         <div className="signin__container">

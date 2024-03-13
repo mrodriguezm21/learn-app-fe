@@ -1,0 +1,23 @@
+.registration__success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+    margin-bottom: 5em;
+}
+
+.registration__success__text {
+    text-align: center;
+    max-width: 40ch;
+}
+
+.registration__success__userInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+}
+.registration__success__userInfo span {
+    color: #424955;
+}

@@ -1,3 +1,4 @@
+import { ERRORS } from '../constants';
 import {
     clearLocalStorage,
     getItemLocalStorage,
@@ -48,64 +49,72 @@ export async function logoutService() {
 
 export async function trainerSignupService({
     email,
-    firstname,
-    lastname,
+    firstName,
+    lastName,
     specialization,
     role,
 }) {
     try {
-        const response = await fetch(`${BASE_URL}/signup`, {
+        const response = await fetch(`${BASE_URL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 email,
-                firstname,
-                lastname,
+                firstName,
+                lastName,
                 specialization,
                 role,
             }),
         });
         if (!response.ok) {
-            throw new Error('Signup failed');
+            if (response.status === 409) {
+                throw new Error(ERRORS.EMAIL_TAKEN);
+            }
+            const data = await response.json();
+            throw new Error(data.message);
         }
         const data = await response.json();
         return data;
     } catch (error) {
-        throw new Error('Signup failed');
+        throw new Error(error);
     }
 }
 
 export async function studentSignupService({
     email,
-    firstname,
-    lastname,
+    firstName,
+    lastName,
     dateOfBirth,
     address,
     role,
 }) {
     try {
-        const response = await fetch(`${BASE_URL}/signup`, {
+        const response = await fetch(`${BASE_URL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 email,
-                firstname,
-                lastname,
+                firstName,
+                lastName,
                 dateOfBirth,
                 address,
                 role,
             }),
         });
         if (!response.ok) {
-            throw new Error('Signup failed');
+            if (response.status === 409) {
+                throw new Error(ERRORS.EMAIL_TAKEN);
+            }
+            const data = await response.json();
+            throw new Error(data.message);
         }
         const data = await response.json();
         return data;
     } catch (error) {
-        throw new Error('Signup failed');
+        throw new Error(error);
     }
 }
