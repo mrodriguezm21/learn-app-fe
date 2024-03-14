@@ -21,7 +21,6 @@ export function MiniProfile({ closeHandler }) {
         closeHandler();
     };
     const handleSignout = () => {
-        navigate('/');
         closeHandler();
         dispatch(logout());
     };

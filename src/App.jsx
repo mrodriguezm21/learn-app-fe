@@ -11,6 +11,7 @@ import { Profile } from './components/Profile/Profile';
 import { Blog } from './components/Blog/Blog';
 import { AboutUs } from './components/AboutUs/AboutUs';
 import { RegistrationSuccess } from './components/Registration/components/RegistrationSuccess/RegistrationSuccess';
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { useUser } from './hooks/useUser';
 import { ROLS } from './constants';
 import registrationImgStudent from './assets/registration-student.png';
@@ -49,7 +50,14 @@ function App() {
                     path="registration-success"
                     element={<RegistrationSuccess />}
                 />
-                <Route path="my-account" element={<Profile />} />
+                <Route
+                    path="my-account"
+                    element={
+                        <PrivateRoute>
+                            <Profile />
+                        </PrivateRoute>
+                    }
+                />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <Footer />
