@@ -46,7 +46,12 @@ export const registerSlice = createSlice({
             state.userInfo = action.payload;
         });
         builder.addCase(registerStudent.rejected, (state, action) => {
-            toast.error('Registration failed', {
+            const errorMessage = action.error.message.includes(
+                ERRORS.EMAIL_TAKEN
+            )
+                ? ERRORS.EMAIL_TAKEN
+                : 'Registration failed';
+            toast.error(errorMessage, {
                 style: {
                     backgroundColor: '#ff4d4f',
                     color: '#fff',
@@ -54,6 +59,7 @@ export const registerSlice = createSlice({
                 duration: 1000,
             });
             state.statusRegister = STATUS.FAILED;
+            state.errorRegister = ERRORS.EMAIL_TAKEN;
         });
         builder.addCase(registerTrainer.pending, (state, action) => {
             state.statusRegister = STATUS.LOADING;

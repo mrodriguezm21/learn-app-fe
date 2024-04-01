@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { useSelector } from 'react-redux';
 import { Button } from '../../common';
-import { BUTTONS, BUTTONS_VARIANTS } from '../../constants';
+import { BUTTONS, BUTTONS_VARIANTS, ROLS } from '../../constants';
 import './Profile.css';
 import 'ag-grid-community/styles/ag-grid.css'; // Core CSS
 import 'ag-grid-community/styles/ag-theme-quartz.css'; // Theme
@@ -19,26 +19,44 @@ export function Profile() {
         specialization,
         dateOfBirth,
         avatar,
+        role,
     } = useSelector(selectUserInfo);
-    const [rowData, setRowData] = useState([
+    const [rowDataStudent, setRowDataStudent] = useState([
+        { name: 'Elizabeth Lopez', specialization: 'PHP' },
+        { name: 'Matthew Martinez', specialization: 'JavaScript' },
+        { name: 'Elizabeth Hall', specialization: 'Algorhtms' },
+    ]);
+    const [rowDataTrainer, setRowDataTrainer] = useState([
         { name: 'Elizabeth Lopez', status: true },
         { name: 'Matthew Martinez', status: true },
         { name: 'Elizabeth Hall', status: false },
     ]);
-    const [colfDefs, setColfDefs] = useState([
-        { field: 'name', width: 170, cellClass: 'bold' },
+    const [colfDefsTrainer, setColfDefsTrainer] = useState([
+        { field: 'name', width: 170, cellClass: 'bold', resizable: false },
         {
-            field: 'status',
+            field: role === ROLS.TRAINER ? 'status' : 'specialization',
             cellDataType: 'text',
             sortable: true,
             filter: true,
             width: 130,
+            resizable: false,
             valueFormatter: (params) =>
                 params.value ? 'ACTIVE' : ' NOT ACTIVE',
             cellClassRules: {
                 'status--active': (params) => params.value === true,
                 'status--inactive': (params) => params.value === false,
             },
+        },
+    ]);
+    const [colfDefsStudent, setColfDefsStudent] = useState([
+        { field: 'name', width: 170, cellClass: 'bold', resizable: false },
+        {
+            field: role === ROLS.TRAINER ? 'status' : 'specialization',
+            cellDataType: 'text',
+            sortable: true,
+            filter: true,
+            width: 130,
+            resizable: false,
         },
     ]);
     return (
@@ -72,6 +90,12 @@ export function Profile() {
                         <span className="bold">User Name</span>
                         <span>{username}</span>
                     </div>
+                    {dateOfBirth && (
+                        <div className="my-profile__info__textbox">
+                            <span className="bold">Date of Birth</span>
+                            <span>{dateOfBirth}</span>
+                        </div>
+                    )}
                     <div className="my-profile__info__textbox">
                         <span className="bold">Specialization</span>
                         <span>{specialization ?? 'Update your profile'}</span>
@@ -85,24 +109,42 @@ export function Profile() {
                         <span>{email}</span>
                     </div>
                 </div>
-                <div className="my-profile__actions">
-                    <Button>{BUTTONS.EDIT_PROFILE}</Button>
-                    <Button variant={BUTTONS_VARIANTS.SECONDARY}>
-                        {BUTTONS.CHANGE_PASSWORD}
-                    </Button>
-                </div>
             </section>
-            <section className="my-students">
-                <h2 className="subheader">My Students</h2>
+            <section className="right-container">
+                <div className="right-container__header">
+                    <h2 className="subheader">
+                        {role === ROLS.TRAINER ? 'My Students' : 'My Trainers'}
+                    </h2>
+                    <Button>{BUTTONS.ADD_TRAINER}</Button>
+                </div>
 
-                <div className="ag-theme-quartz my-students__table">
+                <div className="ag-theme-quartz right-container__table">
                     <AgGridReact
-                        rowData={rowData}
-                        columnDefs={colfDefs}
+                        rowData={
+                            role === ROLS.TRAINER
+                                ? rowDataTrainer
+                                : rowDataStudent
+                        }
+                        columnDefs={
+                            role === ROLS.TRAINER
+                                ? colfDefsTrainer
+                                : colfDefsStudent
+                        }
                         autoSizeStrategy={{ type: 'fitGridWidth' }}
                     />
                 </div>
             </section>
+            <div className="profile__actions">
+                <Button>{BUTTONS.EDIT_PROFILE}</Button>
+                <Button variant={BUTTONS_VARIANTS.SECONDARY}>
+                    {BUTTONS.CHANGE_PASSWORD}
+                </Button>
+                {role === ROLS.STUDENT && (
+                    <Button variant={BUTTONS_VARIANTS.QUATERNARY}>
+                        {BUTTONS.DELETE_PROFILE}
+                    </Button>
+                )}
+            </div>
         </section>
     );
 }

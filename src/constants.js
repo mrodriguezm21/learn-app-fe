@@ -17,12 +17,15 @@ export const BUTTONS = {
     SUBMIT: 'Submit',
     EDIT_PROFILE: 'Edit profile',
     CHANGE_PASSWORD: 'Change password',
+    DELETE_PROFILE: 'Delete profile',
+    ADD_TRAINER: 'Add trainer',
 };
 
 export const BUTTONS_VARIANTS = {
     PRIMARY: 'primary',
     SECONDARY: 'secondary',
     TERTIARY: 'tertiary',
+    QUATERNARY: 'quaternary',
 };
 
 export const LOG_FORM = {
