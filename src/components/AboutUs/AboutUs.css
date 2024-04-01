@@ -8,21 +8,17 @@
     justify-content: center;
     gap: 3em;
 }
-
 .about-us__main-text {
     margin-top: 2em;
-    color: #9095a0ff;
+    color: theme('colors.neutral.500');
 }
-
 .about-us__banner {
     width: 95%;
 }
 .about-us__banner img {
     width: 100%;
     border-radius: 12px;
-    box-shadow:
-        0px 4px 9px #171a1f,
-        0px 0px 2px #171a1f;
+    box-shadow: theme('boxShadow.xl');
 }
 .about-us__team {
     width: 100%;
@@ -30,7 +26,6 @@
     gap: 2.5em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
-
 .about-us__team__heading {
     display: flex;
     flex-direction: column;
@@ -40,13 +35,12 @@
     font-size: 2.5rem;
 }
 .about-us__team__heading p {
-    color: #9095a0ff;
+    color: theme('colors.neutral.500');
 }
-
 @media screen and (min-width: 768px) {
     .about-us__main-text {
         margin-top: 2em;
-        color: #9095a0ff;
+        color: theme('colors.neutral.500');
         max-width: 85ch;
     }
     .about-us__team__heading {

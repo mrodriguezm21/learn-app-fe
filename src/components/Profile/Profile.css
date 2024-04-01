@@ -51,14 +51,14 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #60cfa5ff;
+    color: theme('colors.color-3.500');
 }
 .status--active img {
     width: 16px;
     height: 16px;
 }
 .status--inactive {
-    color: #f22128ff;
+    color: theme('colors.danger.500');
 }
 
 .my-students {

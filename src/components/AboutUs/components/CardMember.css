@@ -1,17 +1,17 @@
 .card-member {
     padding: 20px;
     display: flex;
-    border-radius: 8px;
+    border-radius: theme('borderRadius.l');
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    background-color: #fafafb;
+    background-color: theme('colors.neutral.100');
 }
 .card-member__image {
     width: 175px;
     height: 175px;
     object-fit: cover;
-    border: 5px solid #fff;
+    border: 5px solid theme('colors.white');
     border-radius: 87px;
     margin-top: 1em;
 }
@@ -35,9 +35,9 @@
     font-size: 1.5rem;
 }
 .card-member__profession {
-    color: #6355d8;
+    color: theme('colors.primary.500');
 }
 .card-member__description {
-    color: #424955;
+    color: theme('colors.neutral.650');
     max-width: 20ch;
 }

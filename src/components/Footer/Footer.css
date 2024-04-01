@@ -4,7 +4,7 @@ footer {
     text-align: center;
     justify-content: center;
     place-items: center;
-    background: #fafafbff;
+    background: theme('colors.neutral.100');
     gap: 24px;
 }
 footer .logo__container {
@@ -29,10 +29,10 @@ footer div .footer_ul {
     gap: 12px;
 }
 .footer__newsletter h3 {
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
 }
 .footer__newsletter p {
-    color: #424955ff;
+    color: theme('colors.neutral.650');
     font-size: 12px;
 }
 

@@ -1,7 +1,7 @@
 .box {
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #bcc1ca;
+    border: 1px solid theme('colors.neutral.400');
 }
 .box img {
     width: 100%;
@@ -15,7 +15,7 @@
 }
 .box__content__tag {
     align-self: flex-start;
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
 }
 .box__content__title {
     align-self: flex-start;
@@ -26,15 +26,15 @@
     margin-top: 1em;
     display: flex;
     justify-content: space-between;
-    color: #9095a0ff;
+    color: theme('colors.neutral.500');
 }
 .box__content__footer__duration {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #565e6cff;
-    border: 1px solid #424955ff;
-    border-radius: 14px;
+    color: theme('colors.neutral.600');
+    border: 1px solid theme('colors.neutral.650');
+    border-radius: theme('borderRadius.l');
     padding: 0 6px;
     height: 28px;
 }

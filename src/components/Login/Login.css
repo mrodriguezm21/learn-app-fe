@@ -11,7 +11,7 @@
 }
 .signin__subheader {
     font-size: 20px;
-    color: #565e6cff;
+    color: theme('colors.neutral.600');
 }
 .signin__form {
     display: flex;
@@ -35,12 +35,12 @@
 .signin__register-section__first-line {
     font-size: 12px;
     font-weight: 700;
-    color: #565e6cff;
+    color: theme('colors.neutral.600');
 }
 .signin__register-section__register-link {
     font-weight: 700;
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
 }
 .signin__register-section__register-link:visited {
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
 }

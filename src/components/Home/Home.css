@@ -16,7 +16,7 @@
 }
 .home__learning__text p {
     margin: 0 auto;
-    color: #9095a0ff;
+    color: theme('colors.neutral.500');
     line-height: 30px;
     max-width: 40%;
 }
@@ -25,7 +25,6 @@
     background: #666;
     width: 65%;
     height: 450px;
-    margin: 0 auto;
     overflow: hidden;
     border-radius: 6px;
 }
@@ -44,7 +43,7 @@
     border-radius: 6px;
     margin: 0 auto;
     position: relative;
-    background: #fafafbff;
+    background: theme('colors.neutral.100');
     overflow: hidden;
 }
 .home__join-us__text {
@@ -57,7 +56,7 @@
     text-align: center;
 }
 .home__join-us h2 {
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
 }
 .home__join-us__text p {
     max-width: 50%;
@@ -78,7 +77,7 @@
     top: -300px;
     right: -300px;
     border-radius: 50%;
-    color: #ecb82b;
+    color: theme('colors.color-2.500');
 }
 
 .oval {
@@ -87,7 +86,7 @@
     bottom: -90px;
     width: 295px;
     height: 295px;
-    background: #867ce1ff;
+    background: theme('colors.primary.400');
     border-radius: 50%;
 }
 .home__join-us__bottom-dr {

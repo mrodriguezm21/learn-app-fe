@@ -19,5 +19,5 @@
     gap: 1em;
 }
 .registration__success__userInfo span {
-    color: #424955;
+    color: theme('colors.neutral.650');
 }

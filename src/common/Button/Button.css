@@ -1,6 +1,6 @@
 /* Button 216 */
 .button {
-    min-width: 100px;   
+    min-width: 100px;
     height: 44px;
     padding: 0 16px;
     display: flex;
@@ -9,22 +9,23 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
-    color: #ffffffff;
-    background: #6355d8ff;
+    color: theme('colors.white');
+    background-color: theme('colors.primary.500');
+    background: theme('colors.primary.500');
     opacity: 1;
     border: none;
-    border-radius: 6px;
+    border-radius: theme('borderRadius.m');
     cursor: pointer;
 }
 /* Hover */
 .button:hover {
-    color: #ffffffff; /* white */
-    background: #4d3ed3ff; /* primary-550 */
+    color: theme('colors.white'); /* white */
+    background: theme('colors.primary.550'); /* primary-550 */
 }
 /* Pressed */
 .button:hover:active {
-    color: #ffffffff; /* white */
-    background: #3d2dc7ff; /* primary-600 */
+    color: theme('colors.white'); /* white */
+    background: theme('colors.primary.600'); /* primary-600 */
 }
 /* Disabled */
 .button:disabled {
@@ -32,30 +33,30 @@
     cursor: not-allowed;
 }
 .button:disabled:hover {
-    color: #ffffffff; /* white */
-    background: #6355d8ff; /* primary-500 */
+    color: theme('colors.white'); /* white */
+    background: theme('colors.primary.500'); /* primary-500 */
 }
 .button--secondary {
-    color: #ffffffff; /* white */
-    background: #60cfa5ff;
+    color: theme('colors.white'); /* white */
+    background: theme('colors.color-3.500');
 }
 .button--secondary:hover {
-    color: #ffffffff; /* white */
-    background: #36b584ff; /* tertiary3-600 */
+    color: theme('colors.white'); /* white */
+    background: theme('colors.color-3.600'); /* tertiary3-600 */
 }
 .button--secondary:hover:active {
-    color: #ffffffff; /* white */
-    background: #2f9c72ff; /* tertiary3-650 */
+    color: theme('colors.white'); /* white */
+    background: theme('colors.color-3.650');
 }
 .button--tertiary {
-    background: #00000000;
-    color: #6355d8ff;
+    background: theme('colors.transparent');
+    color: theme('colors.primary.500');
 }
 .button--tertiary:hover {
-    color: #6355d8ff;
+    color: theme('colors.primary.500');
     background: #e1dff8ff;
 }
 .button--tertiary:hover:active {
-    color: #6355d8ff; /* primary-500 */
+    color: theme('colors.primary.500'); /* primary-500 */
     background: #cfcbf3ff; /* primary-200 */
 }

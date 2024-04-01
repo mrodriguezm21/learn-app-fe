@@ -1,7 +1,7 @@
 .join-us__box {
     display: flex;
     width: 82%;
-    background: #FAFAFBFF;
+    background: theme('colors.neutral.100');
     border-radius: 12px;
     overflow: hidden;
 }
