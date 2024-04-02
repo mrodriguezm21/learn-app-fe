@@ -19,6 +19,7 @@ export const BUTTONS = {
     CHANGE_PASSWORD: 'Change password',
     DELETE_PROFILE: 'Delete profile',
     ADD_TRAINER: 'Add trainer',
+    CANCEL: 'Cancel',
 };
 
 export const BUTTONS_VARIANTS = {
@@ -48,6 +49,15 @@ export const REG_FORM = {
     ADDRESS: 'Address (optional)',
     PLACEHOLDER: 'Input text',
     SELECT_PLACEHOLDER: 'Please select',
+};
+
+export const PASS_FORM = {
+    CURRENT_PASSWORD: 'Current password',
+    NEW_PASSWORD: 'New password',
+    CONFIRM_NEW_PASSWORD: 'Confirm new password',
+    CURRENT_PASSWORD_PLACEHOLDER: 'Enter current password',
+    NEW_PASSWORD_PLACEHOLDER: 'Enter new password',
+    CONFIRM_NEW_PASSWORD_PLACEHOLDER: 'Confirm new password',
 };
 
 export const ERRORS = {

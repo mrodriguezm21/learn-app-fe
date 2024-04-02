@@ -1,6 +1,7 @@
 .textbox {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .textbox input,
 .textbox select {
@@ -56,4 +57,12 @@
 .textbox :disabled + .icon,
 .textbox :disabled + .icon + .icon {
     fill: theme('colors.neutral.500');
+}
+
+.textbox-icon{
+    width: 20px;
+    position: absolute;
+    bottom: 11px;
+    right: 7px;
+    cursor: pointer;
 }

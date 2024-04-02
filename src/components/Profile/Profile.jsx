@@ -34,7 +34,7 @@ export function Profile() {
     const [colfDefsTrainer, setColfDefsTrainer] = useState([
         { field: 'name', width: 170, cellClass: 'bold', resizable: false },
         {
-            field: role === ROLS.TRAINER ? 'status' : 'specialization',
+            field: 'status',
             cellDataType: 'text',
             sortable: true,
             filter: true,
@@ -51,7 +51,7 @@ export function Profile() {
     const [colfDefsStudent, setColfDefsStudent] = useState([
         { field: 'name', width: 170, cellClass: 'bold', resizable: false },
         {
-            field: role === ROLS.TRAINER ? 'status' : 'specialization',
+            field: 'specialization',
             cellDataType: 'text',
             sortable: true,
             filter: true,
