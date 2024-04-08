@@ -27,3 +27,8 @@ export const passwordSlice = createSlice({
         });
     },
 });
+
+export const selectPasswordStatus = (state) =>
+    state.password.statusChangePassword;
+
+export default passwordSlice.reducer;

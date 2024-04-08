@@ -25,8 +25,8 @@ export const BUTTONS = {
 export const BUTTONS_VARIANTS = {
     PRIMARY: 'primary',
     SECONDARY: 'secondary',
-    TERTIARY: 'tertiary',
-    QUATERNARY: 'quaternary',
+    INVERTED: 'inverted',
+    IMPORTANT: 'important',
 };
 
 export const LOG_FORM = {

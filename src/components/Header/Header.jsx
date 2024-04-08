@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Skeleton } from '@mui/material';
 import { Button, Logo } from '../../common';
 import './Header.css';
-import { BUTTONS, URL_PATHS } from '../../constants';
+import { BUTTONS, BUTTONS_VARIANTS, URL_PATHS } from '../../constants';
 import { SideNav } from './components/SideNav/SideNav';
 import optionsIcon from '../../assets/menu-dots.svg';
 import { selectAuth, selectUserInfo } from '../../store/authSlice';
@@ -98,7 +98,10 @@ export function Header() {
             </div>
             {!loginStatus && pathname !== URL_PATHS.LOGIN && (
                 <aside className="header__nav__log-buttons">
-                    <Button variant="tertiary" onClick={handleLogin}>
+                    <Button
+                        variant={BUTTONS_VARIANTS.INVERTED}
+                        onClick={handleLogin}
+                    >
                         {BUTTONS.SIGN_IN}
                     </Button>
                     <Button onClick={handleJoinUs}>{BUTTONS.JOIN_US}</Button>

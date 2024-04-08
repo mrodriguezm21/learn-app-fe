@@ -17,6 +17,7 @@ import { ROLS } from './constants';
 import registrationImgStudent from './assets/registration-student.png';
 import registrationImgTrainer from './assets/registration-trainer.png';
 import { ChangePassword } from './components/ChangePassword/ChangePassword';
+import { ChangePasswordSucess } from './components/ChangePassword/components/ChangePasswordSuc ess';
 
 function App() {
     useUser();
@@ -60,6 +61,10 @@ function App() {
                     }
                 />
                 <Route path="/change-password" element={<ChangePassword />} />
+                <Route
+                    path="/change-password/success"
+                    element={<ChangePasswordSucess />}
+                />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <Footer />

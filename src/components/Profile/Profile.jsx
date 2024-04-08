@@ -148,7 +148,7 @@ export function Profile() {
                     {BUTTONS.CHANGE_PASSWORD}
                 </Button>
                 {role === ROLS.STUDENT && (
-                    <Button variant={BUTTONS_VARIANTS.QUATERNARY}>
+                    <Button variant={BUTTONS_VARIANTS.IMPORTANT}>
                         {BUTTONS.DELETE_PROFILE}
                     </Button>
                 )}

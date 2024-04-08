@@ -1,4 +1,3 @@
-/* Button 216 */
 .button {
     min-width: 100px;
     height: 44px;
@@ -43,24 +42,24 @@
 .button--secondary:hover:active {
     background: theme('colors.color-3.650');
 }
-.button--tertiary {
+.button--inverted {
     background: theme('colors.transparent');
     color: theme('colors.primary.500');
 }
-.button--tertiary:hover {
+.button--inverted:hover {
     background: #e1dff8ff;
 }
-.button--tertiary:hover:active {
+.button--inverted:hover:active {
     background: #cfcbf3ff; /* primary-200 */
 }
 
-.button--quaternary {
+.button--important {
     background: theme('colors.danger.500');
     color: theme('colors.white');
 }
-.button--quaternary:hover {
+.button--important:hover {
     background: theme('colors.danger.600'); /* danger-600 */
 }
-.button--quaternary:hover:active {
+.button--important:hover:active {
     background: theme('colors.danger.650'); /* danger-650 */
 }

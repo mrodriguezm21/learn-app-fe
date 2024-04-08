@@ -1,12 +1,16 @@
 import './ChangePassword.css';
 import { useReducer, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Input } from '../../common/Input/Input';
 import lock from '../../assets/lock.svg';
-import { BUTTONS, BUTTONS_VARIANTS, PASS_FORM } from '../../constants';
+import { BUTTONS, BUTTONS_VARIANTS, PASS_FORM, STATUS } from '../../constants';
 import { Button } from '../../common';
-import { changePassword } from '../../store/passwordSlice';
+import {
+    changePassword,
+    selectPasswordStatus,
+} from '../../store/passwordSlice';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -47,6 +51,8 @@ const validateInputs = ({ formState, setButtonDisabled }) => {
 };
 export function ChangePassword() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const status = useSelector(selectPasswordStatus);
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [inputTypes, setInputTypes] = useState({
         currentPassword: 'password',
@@ -105,6 +111,9 @@ export function ChangePassword() {
             return;
         }
         dispatch(changePassword({ newPassword: formState.newPassword }));
+        if (status === STATUS.SUCCEEDED) {
+            navigate('success');
+        }
     };
     return (
         <section className="change-password">
@@ -145,7 +154,7 @@ export function ChangePassword() {
                         isPassword
                     />
                     <div className="change-password__form__button-box">
-                        <Button variant={BUTTONS_VARIANTS.TERTIARY}>
+                        <Button variant={BUTTONS_VARIANTS.INVERTED}>
                             {BUTTONS.CANCEL}
                         </Button>
                         <Button type="submit" disabled={buttonDisabled}>

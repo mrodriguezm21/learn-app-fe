@@ -105,7 +105,7 @@
         grid-area: actions;
         flex-direction: row;
     }
-    .profile__actions .button--quaternary{
+    .profile__actions .button--important{
         margin-left: auto;
     }
     .right-container {
