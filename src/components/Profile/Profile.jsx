@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../common';
 import { BUTTONS, BUTTONS_VARIANTS, ROLS } from '../../constants';
 import './Profile.css';
@@ -10,6 +11,7 @@ import checkIcon from '../../assets/check.svg';
 import { selectUserInfo } from '../../store/authSlice';
 
 export function Profile() {
+    const navigate = useNavigate();
     const {
         firstName,
         lastName,
@@ -59,6 +61,9 @@ export function Profile() {
             resizable: false,
         },
     ]);
+    const handleChangePassword = () => {
+        navigate('/change-password');
+    };
     return (
         <section className="profile__container">
             <h1 className="header">My Account</h1>
@@ -136,7 +141,10 @@ export function Profile() {
             </section>
             <div className="profile__actions">
                 <Button>{BUTTONS.EDIT_PROFILE}</Button>
-                <Button variant={BUTTONS_VARIANTS.SECONDARY}>
+                <Button
+                    onClick={handleChangePassword}
+                    variant={BUTTONS_VARIANTS.SECONDARY}
+                >
                     {BUTTONS.CHANGE_PASSWORD}
                 </Button>
                 {role === ROLS.STUDENT && (
