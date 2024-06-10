@@ -3,7 +3,7 @@ import { Button } from '../../../common';
 import { BUTTONS } from '../../../constants';
 import './ChangePasswordSuccess.css';
 
-export function ChangePasswordSucess() {
+export function ChangePasswordSuccess() {
     const navigate = useNavigate();
     const handleSignIn = () => {
         navigate('/login');
