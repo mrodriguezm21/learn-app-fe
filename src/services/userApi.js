@@ -22,22 +22,23 @@ export async function getMeService() {
     }
 }
 
-export async function updatePasswordService({ newPassword }) {
+export async function updatePasswordService({ currentPassword, newPassword }) {
     try {
         const token = getItemLocalStorage('token');
-        const response = fetch(`${BASE_URL}/update-password`, {
-            method: 'POST',
+        const response = await fetch(`${BASE_URL}/update-password`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ password: newPassword }),
+            body: JSON.stringify({ currentPassword, newPassword }),
         });
         if (!response.ok) {
-            throw new Error('Something went wrong changing password');
+            const errorResponse = await response.json();
+            throw new Error(JSON.stringify(errorResponse));
         }
         return 'Password changed successfully';
     } catch (error) {
-        return new Error('Something went wrong changing password');
+        throw new Error(Object.values(JSON.parse(error.message))[0]);
     }
 }

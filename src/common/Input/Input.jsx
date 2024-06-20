@@ -36,6 +36,7 @@ export function Input({
                 (type === 'password' ? (
                     <button
                         type="button"
+                        tabIndex="-1"
                         onClick={toggleIconPassword}
                         className="textbox-button"
                     >
@@ -48,6 +49,7 @@ export function Input({
                 ) : (
                     <button
                         type="button"
+                        tabIndex="-1"
                         onClick={toggleIconPassword}
                         className="textbox-button"
                     >
