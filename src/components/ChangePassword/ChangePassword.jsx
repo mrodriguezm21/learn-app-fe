@@ -51,7 +51,7 @@ const validateInputs = ({ formState, setButtonDisabled }) => {
 export function ChangePassword() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // useChangePasswordRedirect();
+    useChangePasswordRedirect();
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [inputTypes, setInputTypes] = useState({
         currentPassword: 'password',
@@ -118,7 +118,7 @@ export function ChangePassword() {
                 newPassword: formState.newPassword,
             })
         );
-        // dispatch(logout());
+        dispatch(logout());
     };
     return (
         <section className="change-password">

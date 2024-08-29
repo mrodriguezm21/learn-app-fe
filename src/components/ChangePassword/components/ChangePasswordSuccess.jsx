@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../common';
 import { BUTTONS } from '../../../constants';
 import './ChangePasswordSuccess.css';
+import { resetPasswordStateAction } from '../../../store/passwordSlice';
 
 export function ChangePasswordSuccess() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleSignIn = () => {
         navigate('/login');
     };
+    useEffect(() => {
+        dispatch(resetPasswordStateAction());
+    }, [dispatch]);
     return (
         <section className="change-password-success">
             <h1 className="header">Password Changed</h1>

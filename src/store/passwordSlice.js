@@ -16,6 +16,11 @@ export const changePassword = createAsyncThunk(
 export const passwordSlice = createSlice({
     name: 'password',
     initialState,
+    reducers: {
+        resetState: (state, action) => {
+            state.statusChangePassword = STATUS.IDLE;
+        },
+    },
     extraReducers(builder) {
         builder.addCase(changePassword.pending, (state, action) => {
             state.statusChangePassword = STATUS.LOADING;
@@ -45,5 +50,6 @@ export const passwordSlice = createSlice({
 
 export const selectPasswordStatus = (state) =>
     state.password.statusChangePassword;
+export const { resetState: resetPasswordStateAction } = passwordSlice.actions;
 
 export default passwordSlice.reducer;
