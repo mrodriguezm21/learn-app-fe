@@ -52,7 +52,6 @@ export const authSlice = createSlice({
             state.userInfo = action.payload;
         });
         builder.addCase(login.rejected, (state, action) => {
-            console.log(action.error.message);
             const errorMessage = action.error.message.includes(
                 ERRORS.INVALID_LOGIN_VALUES
             )
