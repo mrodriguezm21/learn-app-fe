@@ -50,6 +50,6 @@ export const passwordSlice = createSlice({
 
 export const selectPasswordStatus = (state) =>
     state.password.statusChangePassword;
-export const { resetState: resetPasswordStateAction } = passwordSlice.actions;
+export const { resetState: actionResetPasswordState } = passwordSlice.actions;
 
 export default passwordSlice.reducer;

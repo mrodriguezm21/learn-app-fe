@@ -62,6 +62,7 @@ export const PASS_FORM = {
 
 export const ERRORS = {
     EMAIL_TAKEN: 'Email is already taken',
+    INVALID_LOGIN_VALUES: 'Invalid email or password',
 };
 export const FORM_STATUS = {
     IDLE: 'idle',

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../common';
 import { BUTTONS } from '../../../constants';
 import './ChangePasswordSuccess.css';
-import { resetPasswordStateAction } from '../../../store/passwordSlice';
+import { actionResetPasswordState } from '../../../store/passwordSlice';
 
 export function ChangePasswordSuccess() {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export function ChangePasswordSuccess() {
         navigate('/login');
     };
     useEffect(() => {
-        dispatch(resetPasswordStateAction());
+        dispatch(actionResetPasswordState());
     }, [dispatch]);
     return (
         <section className="change-password-success">

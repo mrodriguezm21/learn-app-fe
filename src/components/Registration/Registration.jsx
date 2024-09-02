@@ -93,6 +93,7 @@ export function Registration({ rol, imgSrc }) {
                   lastName: '',
                   email: '',
                   specialization: '',
+                  role: ROLS.TRAINER,
               }
             : {
                   firstName: '',
@@ -100,6 +101,7 @@ export function Registration({ rol, imgSrc }) {
                   email: '',
                   dateOfBirth: '',
                   address: '',
+                  role: ROLS.STUDENT,
               };
     const [formState, formDispatch] = useReducer(reducer, formInitialState);
     const [formErrors, setFormErrors] = useState(formInitialState);

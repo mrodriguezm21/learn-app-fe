@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './MiniProfile.css';
 import { useNavigate } from 'react-router';
 import { logout, selectUserInfo } from '../../../../store/authSlice';
+import { actionResetRegister } from '../../../../store/registerSlice';
 
 export function MiniProfile({ closeHandler }) {
     const dispatch = useDispatch();
@@ -18,11 +19,14 @@ export function MiniProfile({ closeHandler }) {
     };
     const handleMyAccount = () => {
         navigate('my-account');
+        dispatch(actionResetRegister());
         closeHandler();
     };
     const handleSignout = () => {
         closeHandler();
+        dispatch(actionResetRegister());
         dispatch(logout());
+        navigate('/');
     };
     return (
         <div

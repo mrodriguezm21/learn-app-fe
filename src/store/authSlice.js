@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 import { getMeService, loginService, logoutService } from '../services';
-import { STATUS } from '../constants';
+import { ERRORS, STATUS } from '../constants';
 
 const initialState = {
     isAuth: false,
@@ -52,7 +52,13 @@ export const authSlice = createSlice({
             state.userInfo = action.payload;
         });
         builder.addCase(login.rejected, (state, action) => {
-            toast.error('Login failed', {
+            console.log(action.error.message);
+            const errorMessage = action.error.message.includes(
+                ERRORS.INVALID_LOGIN_VALUES
+            )
+                ? ERRORS.INVALID_LOGIN_VALUES
+                : 'Login failed';
+            toast.error(errorMessage, {
                 style: {
                     backgroundColor: '#ff4d4f',
                     color: '#fff',

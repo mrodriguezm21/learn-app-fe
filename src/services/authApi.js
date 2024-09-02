@@ -24,7 +24,7 @@ export async function loginService({ email, password }) {
         setItemLocalStorage({ item: 'token', value: token });
         return userData;
     } catch (error) {
-        throw new Error('Invalid credentials');
+        throw new Error(ERRORS.INVALID_LOGIN_VALUES);
     }
 }
 
